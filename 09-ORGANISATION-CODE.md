@@ -3,7 +3,7 @@
 >*Sommaire*
 
 >>- *Namespaces & Modules, à l'ancienne*
->>- *"Loader" javascript, comme les vrais*
+>>- *"Loader" JavaScript, comme les vrais*
 
 
 >*Notre application (côté client) tient dans une seule page. Elle mélange du code HTML et du code Javascript, et cela dans un seul fichier commence à devenir difficilement lisible, difficilement modifiable et donc difficilement maintenable. J’aimerais ajouter la possibilité d’ajouter ou de modifier des articles, mais… Faisons d’abord le ménage et rangeons notre code..*
@@ -29,7 +29,7 @@ var Blog = {
 }
 ```
 
-Vous enregistrez ceci dans un fichier `Blog.js`, que vous pensez à référencer dans votre page html :
+Vous enregistrez ceci dans un fichier `Blog.js`, que vous pensez à référencer dans votre page HTML :
 
 ```html
 <script src="Blog.js"></script>
@@ -583,7 +583,7 @@ yepnope({
 });
 ```
 
-Vous l’aurez compris, le paramètre `load` sert à définir les scripts à charger. Vous notez aussi que l’on peut donner un alias à chacun des scripts (sinon YepNope le fera automatiquement à partir du nom du fichier javascript), alias que l’on peut ensuite utiliser dans le paramètre `callback` pour déclencher un traitement une fois que le script est inclus dans la page (dans notre exemple c’est au moment de l’inclusion du fichier `routes.js`).
+Vous l’aurez compris, le paramètre `load` sert à définir les scripts à charger. Vous notez aussi que l’on peut donner un alias à chacun des scripts (sinon YepNope le fera automatiquement à partir du nom du fichier JavaScript), alias que l’on peut ensuite utiliser dans le paramètre `callback` pour déclencher un traitement une fois que le script est inclus dans la page (dans notre exemple c’est au moment de l’inclusion du fichier `routes.js`).
 
 Et enfin, il y a aussi le paramètre `complete` qui permet de lancer un traitement une fois tous les scripts inclus.
 

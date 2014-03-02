@@ -13,7 +13,7 @@ Ce chapitre est très court, il présente les origines de Backbone.js, le pourqu
 ##Backbone ? WebApp ? MVC ?
 
 Backbone est un framework JavaScript dédié à la création de **WebApp** en mode **"Single Page Application"**. Il implémente le pattern MVC (l'acronyme signifie : Model View Controller / Modèle Vue Contrôleur) mais, et c'est là qu'est la nouveauté, côté client, plus précisément au sein de votre navigateur. Il reproduit les mécanismes des frameworks MVC côté serveur tels Ruby on Rails, CakePHP, Play!>Framework, ASP.Net MVC (avec Razor)...
-Backbone a été écrit par Jeremy Ashkenas (le papa de Coffeescript et de Underscore) à l’origine pour ses propres besoins lors du développement du site DocumentCloud ([http://www.documentcloud.org/home](http://www.documentcloud.org/home)). Son idée était de créer un framework qui permette de structurer ses développements en s’appuyant justement sur MVC.
+Backbone a été écrit par Jeremy Ashkenas (le papa de CoffeeScript et de Underscore) à l’origine pour ses propres besoins lors du développement du site DocumentCloud ([http://www.documentcloud.org/home](http://www.documentcloud.org/home)). Son idée était de créer un framework qui permette de structurer ses développements en s’appuyant justement sur MVC.
 Mais avant toute chose, faisons quelques petits rappels (ou découvertes ?).
 
 ###Qu’est-ce qu’une “Webapp” ?
@@ -22,7 +22,7 @@ Une “WebApp” n’a pas la même vocation qu’un site Web même si les techn
 
 Une "Single Page Application est une application Web qui embarque tous les éléments nécessaires à son fonctionnement dans une seule page HTML. Les scripts JavaScript liés seront chargés en même temps. Ensuite l’application Web chargera les ressources nécessaires (généralement des données, des images …) à la demande en utilisant Ajax évitant ainsi tout rechargement de page et procurant une expérience utilisateur proche de celle que nous connaissions en mode “client-serveur”, voire meilleure dans certains cas. Ces WebApps nouvelle génération peuvent aussi fonctionner hors connexion en profitant des possibilités des derniers navigateurs (localStorage).
 
->>**Remarque** *: ce qui est amusant, c’est que dès 1999 ou 2000, Microsoft avait déjà introduit cette possibilité avec Internet Explorer 4 qui intégrait une applet Java (si si !) qui permettait de faire du Remote Protocol Call d’une page html vers le serveur sans recharger la page et en s’abonnant en JavaScript à l’évènement de retour (à vérifier, c’est loin, tout ça). Mais ce fut éclipsé par l’apparente simplicité de mise en œuvre des ActiveX (Flash était alors utilisé principalement pour de l’animation, mais permettait aussi ce genre d’artifice).*
+>>**Remarque** *: ce qui est amusant, c’est que dès 1999 ou 2000, Microsoft avait déjà introduit cette possibilité avec Internet Explorer 4 qui intégrait une applet Java (si si !) qui permettait de faire du Remote Protocol Call d’une page HTML vers le serveur sans recharger la page et en s’abonnant en JavaScript à l’évènement de retour (à vérifier, c’est loin, tout ça). Mais ce fut éclipsé par l’apparente simplicité de mise en œuvre des ActiveX (Flash était alors utilisé principalement pour de l’animation, mais permettait aussi ce genre d’artifice).*
 
 Tout ça c’est bien beau, mais vous savez comme moi qu’un code HTML+JS (+CSS) peut rapidement devenir un plat de spaghettis impossible à maintenir, pour les autres mais pour vous aussi (retournez dans votre code 6 mois plus tard ;)). Il faut donc s’astreindre à des règles et s’équiper des bons outils afin de se faciliter la tâche, ne pas avoir à réinventer la poudre à chaque fois et pouvoir coder des applications robustes facilement modifiables (faciles à corriger, faciles à faire évoluer). Et si en plus vous pouvez vous faire plaisir …
 
@@ -41,7 +41,7 @@ MVC un pattern (modèle) de programmation utilisé pour développer des applicat
 
 >>**AVERTISSEMENT 1** *: C’est la lisibilité qui importe. Il peut y avoir des interprétations différentes du modèle MVC quant aux responsabilités de ses composants. Par exemple, est-ce le modèle qui se sauvegarde lui-même ou est-ce un contrôleur qui se chargera de la persistance ? Peu importe (ce sont des querelles de chapelle), gardons juste à l'esprit qu'il y a trois grands modes de classement de nos objets et que l'important c'est d'avoir un code propre, structuré et maintenable (dans 6 mois, vous devez être capables de relire votre code).*
 
->>**AVERTISSEMENT 2** *: La difficulté n’est plus de mise. A l'attention des réfugiés de STRUTS. Mon "1er contact" avec MVC a été avec STRUTS. J'ai trouvé l'expérience peu concluante (expérience développeur désastreuse) et je suis retourné faire de l'ASP.Net "à la souris" (c'était avant 2005). Si certains d'entre vous se sont éloignés de la technique et ont des velléités de s'y remettre mais sont effrayés par MVC, je les rassure tout de suite, les développeurs nous ont enfin "concoctés" des frameworks simples et faciles à mettre en œuvre tels :*
+>>**AVERTISSEMENT 2** *: La difficulté n’est plus de mise. A l'attention des réfugiés de STRUTS. Mon "premier contact" avec MVC a été avec STRUTS. J'ai trouvé l'expérience peu concluante (expérience développeur désastreuse) et je suis retourné faire de l'ASP.Net "à la souris" (c'était avant 2005). Si certains d'entre vous se sont éloignés de la technique et ont des velléités de s'y remettre mais sont effrayés par MVC, je les rassure tout de suite, les développeurs nous ont enfin "concoctés" des frameworks simples et faciles à mettre en œuvre tels :*
 
 >>- *ASP.Net MVC avec le moteur de template Razor*
 >>- *Play!>Framework*
@@ -88,7 +88,7 @@ Pour résumer, avec un parallèle avec du MVC dit "classique", nous avons :
 
 ##Pourquoi j’ai choisi  Backbone ?
  
-	//TODO:
+	//TODO :
 
 
 Tout ceci vous paraît bien théorique ? Alors passons tout de suite à la pratique.

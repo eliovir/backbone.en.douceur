@@ -28,7 +28,7 @@ Mon but est de faire une application web avec Node et Express sur les principes 
 
 Si cela vous paraît obscur, pas d'inquiétude, la partie pratique qui suit devrait vous éclairer. Mais je vous engage fortement à lire [http://naholyr.fr/2011/08/ecrire-service-rest-nodejs-express-partie-1/](http://naholyr.fr/2011/08/ecrire-service-rest-nodejs-express-partie-1/) de [@naholyr](https://twitter.com/naholyr).
 
-  //TODO: voir si ça nécessite d'être développé
+  //TODO : voir si ça nécessite d'être développé
 
 ##Installation(s)
 
@@ -221,7 +221,7 @@ function Routes() {
     Obtenir la liste de tous les articles correspondant à un critère
     lorsque l'on appelle http://localhost:3000/blogposts/query/ en
     mode GET avec une requête en paramètre
-    ex : query : { "title" : "Mon 1er post"} }
+    ex : query : { "title" : "Mon premier post"} }
   */
   app.get('/blogposts/query/:query', function(req, res) {
     console.log("GET (QUERY) : /blogposts/query/" + req.params.query);
@@ -336,19 +336,19 @@ function Routes() {
 }
 ```
 
-Maintenant, nous allons faire un dernier travail avant de revenir à Backbone : Nous allons vérifier que notre serveur d’application fonctionne. Pour le lancer : en mode console, allez dans le répertoire `blog` et lancez la commande `node app.js `.
+Maintenant, nous allons faire un dernier travail avant de revenir à Backbone : nous allons vérifier que notre serveur d’application fonctionne. Pour le lancer : en mode console, allez dans le répertoire `blog` et lancez la commande `node app.js `.
 
 >>**Astuce :** plutôt que de devoir arrêter et relancer votre application à chaque modification, installez **nodemon** : `npm install -g nodemon`, dorénavant pour lancer votre application web, tapez `nodemon app.js` au lieu de `node app.js`, et elle se relancera toute seule à chaque fois que nodemon détectera un changement dans vos fichiers (au moment de la sauvegarde).
 
 ##Testons notre application serveur
 
-Une fois notre application lancée, ouvrez un navigateur, appelez l’url [http://localhost:3000](http://localhost:3000) et ouvrez la console de debug du navigateur. Et c'est parti pour les tests, où nous allons utiliser intensivement les fonctionnalité Ajax de la bibliothèque jQuery. Rappelez vous, nous l'avons incluse dans notre projet, via notre page `index.html`, et au début de notre code dans `app.js`, nous avons la ligne suivante : `app.use(express.static(__dirname + '/public'));`, donc si à l'appel de [http://localhost:3000](http://localhost:3000), le serveur ne trouve pas de route `"/"`, il nous dirigera directement vers `index.html`.
+Une fois notre application lancée, ouvrez un navigateur, appelez l’URL [http://localhost:3000](http://localhost:3000) et ouvrez la console de debug du navigateur. Et c'est parti pour les tests, où nous allons utiliser intensivement les fonctionnalité Ajax de la bibliothèque jQuery. Rappelez vous, nous l'avons incluse dans notre projet, via notre page `index.html`, et au début de notre code dans `app.js`, nous avons la ligne suivante : `app.use(express.static(__dirname + '/public'));`, donc si à l'appel de [http://localhost:3000](http://localhost:3000), le serveur ne trouve pas de route `"/"`, il nous dirigera directement vers `index.html`.
 
 ###Ajoutons un enregistrement
 
 Dans la console tapez ceci (et validez) :
 
-*Requête http de type POST :*
+*Requête HTTP de type POST :*
 
 ```javascript
 $.ajax({
@@ -368,7 +368,7 @@ $.ajax({
 })
 ```
 
-Vous venez donc de créer votre tout permier article (vous avez appelé la route `'/blogposts'` de type `POST`), et vous devriez obtenir ceci dans la console du navigateur :
+Vous venez donc de créer votre tout premier article (vous avez appelé la route `'/blogposts'` de type `POST`), et vous devriez obtenir ceci dans la console du navigateur :
 
 ![BB](RSRC/05_01_SERV.png)
 
@@ -383,7 +383,7 @@ De même dans le terminal, vous noterez l’apparition du message `POST CREATE`,
 
 Dans la console, tapez ceci :
 
-*Requête http de type GET :*
+*Requête HTTP de type GET :*
 
 ```javascript
 $.ajax({
@@ -412,7 +412,7 @@ De même dans le terminal, vous noterez l’apparition du message `GET (ALL)`, n
 
 Dans la console, tapez ceci (vous remarquerez que j’utilise une des clés d’enregistrement):
 
-*Requête http de type GET :*
+*Requête HTTP de type GET :*
 
 ```javascript
 $.ajax({
@@ -438,7 +438,7 @@ De même dans le terminal, vous obtiendrez le message `GET : /blogposts/2o03macl
 
 Dans la console, tapez ceci :
 
-*Requête http de type PUT :*
+*Requête HTTP de type PUT :*
 
 ```javascript
 $.ajax({
@@ -460,7 +460,7 @@ $.ajax({
 
 Puis appelez à nouveau pour vérifier :
 
-*Requête http de type GET :*
+*Requête HTTP de type GET :*
 
 ```javascript
 $.ajax({
@@ -486,7 +486,7 @@ De même, vous pouvez vérifier dans le terminal, l’apparition des messages co
 
 Dans la console, tapez la commande Ajax ci-dessous *(je veux les articles dont le titre est égal à “My 3rd post”)* :
 
-*Requête http de type GET :*
+*Requête HTTP de type GET :*
 
 ```javascript
 $.ajax({
@@ -512,7 +512,7 @@ Une fois de plus, vous pouvez vérifier dans le terminal, l’apparition du mess
 
 Supprimons l'enregistrement qui a la clé d'id égale à `2o03macl` *(chez vous c'est sans doute autre chose)*. Dans la console, tapez ceci :
 
-*Requête http de type DELETE :*
+*Requête HTTP de type DELETE :*
 
 ```javascript
 $.ajax({
@@ -529,7 +529,7 @@ $.ajax({
 
 Puis recherchez à nouveau l’enregistrement :
 
-*Requête http de type GET :*
+*Requête HTTP de type GET :*
 
 ```javascript
 $.ajax({

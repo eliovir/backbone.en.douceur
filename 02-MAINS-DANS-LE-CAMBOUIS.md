@@ -9,7 +9,7 @@
 
 >*Où nous allons lister les éléments nécessaires pour installer Backbone et commencer à développer avec.*
 
-Le plus frustrant lorsque l'on débute la lecture d'un ouvrage informatique dans l'optique de s'auto former c'est que l'on est obligé de lire de nombreux chapitres avant de pouvoir commencer à s'y mettre. Je vais donc tenter de vous faire faire un 1er tour de Backbone.js en 20 minutes pour que vous en saisissiez rapidement la "substantifique moelle". Mais avant d’utiliser Backbone, quelques pré-requis sont nécessaires.
+Le plus frustrant lorsque l'on débute la lecture d'un ouvrage informatique dans l'optique de s'auto former c'est que l'on est obligé de lire de nombreux chapitres avant de pouvoir commencer à s'y mettre. Je vais donc tenter de vous faire faire un premier tour de Backbone.js en 20 minutes pour que vous en saisissiez rapidement la "substantifique moelle". Mais avant d’utiliser Backbone, quelques pré-requis sont nécessaires.
  
 
 ##Prérequis : les dépendances de Backbone
@@ -107,7 +107,7 @@ A ce niveau, vous devriez avoir un squelette de projet fonctionnel avec l'arbore
 ![Arborecsence](RSRC/02_01_ARBO.png)\
 
 
-Les deux paragraphes qui suivent ne sont que pour ceux d'entre vous qui ne connaissent ni **jQuery** ni **Underscore**. Ces paragraphes n'ont pas la prétention de vous apprendre ces outils, mais vous donneront les bases nécessaires pour vous en servir, pour comprendre leur utilité et pour vous donner envie d'aller plus loin. Les autres (ceux qui connaissent déjà), passez directement au **§ "1er contact … avec Backbone"**.
+Les deux paragraphes qui suivent ne sont que pour ceux d'entre vous qui ne connaissent ni **jQuery** ni **Underscore**. Ces paragraphes n'ont pas la prétention de vous apprendre ces outils, mais vous donneront les bases nécessaires pour vous en servir, pour comprendre leur utilité et pour vous donner envie d'aller plus loin. Les autres (ceux qui connaissent déjà), passez directement au **§ "premier contact … avec Backbone"**.
 
 ##Jouons avec jQuery
 
@@ -212,7 +212,7 @@ Dans un premier temps, ouvrez la console de Chrome (ou Safari) : faite un clic d
 ####Saisissons nos 1ères commandes :
 
 
-Je voudrais la liste de mes titres `<H1>` : dans la console, saisir : `$('h1')`, validez, et vous obtenez un tableau (Array au sens JavaScript) des noeud html de type `<H1>` présentes dans votre page html :
+Je voudrais la liste de mes titres `<H1>` : dans la console, saisir : `$('h1')`, validez, et vous obtenez un tableau (Array au sens JavaScript) des noeud HTML de type `<H1>` présentes dans votre page HTML :
 
 ![jQuery](RSRC/02_04_JQUERY.png)\
 
@@ -252,7 +252,7 @@ Je voudrais :
 
 Je voudrais :
 
-- la valeur de l'id de la deuxième liste (`UL`) : `$('ul').eq(1).attr("id")`, je cherche la liste d'index 1 (le 1er élément possède l'index 0).
+- la valeur de l'id de la deuxième liste (`UL`) : `$('ul').eq(1).attr("id")`, je cherche la liste d'index 1 (le premier élément possède l'index 0).
 - parcourir les lignes (`LI`) de la liste dont l'id est `"next_articles_list"` et obtenir leur texte : `$('#next_articles_list').find('li').each(function (index) { console.log( $(this).text() ); })`
 - ajouter une nouvelle ligne à la 2ème liste :
 
@@ -306,11 +306,11 @@ Il semble que tous les éléments soient chargés correctement avec ou sans l’
 ![jQuery](RSRC/02_11_JQUERY.png)\
 
 
-Et là on voit bien qu'au 1er appel `$('#current_articles_list')` jQuery ne trouve rien, puis une fois le DOM chargé, jQuery trouve la liste. J'ai mis mes codes en bas de page, pour des raisons de performances et c'est pour ça que cela "semblait" fonctionner même à l'extérieur de `$(document).ready(handler)`, les éléments se chargeant plus rapidement, mais ça ne garantit rien, tout particulièrement lorsque votre page n’est plus en local. Donc n'oubliez jamais d'exécuter votre code au bon moment grâce à `$(document).ready(handler)`... Et remettez quand même votre code en bas de page ;).
+Et là on voit bien qu'au premier appel `$('#current_articles_list')` jQuery ne trouve rien, puis une fois le DOM chargé, jQuery trouve la liste. J'ai mis mes codes en bas de page, pour des raisons de performances et c'est pour ça que cela "semblait" fonctionner même à l'extérieur de `$(document).ready(handler)`, les éléments se chargeant plus rapidement, mais ça ne garantit rien, tout particulièrement lorsque votre page n’est plus en local. Donc n'oubliez jamais d'exécuter votre code au bon moment grâce à `$(document).ready(handler)`... Et remettez quand même votre code en bas de page ;).
 
 Vous venez de voir une infime partie des possibilités de jQuery, mais cela vous donne déjà un aperçu et vous permet de commencer à jouer avec et aller plus loin. jQuery permet aussi de faire des requêtes AJAX (http) vers des serveurs web, mais nous verrons cela un peu plus tard.
 
-  //TODO: traiter la notion d’id versus la notion de name
+  //TODO : traiter la notion d’id versus la notion de name
 
 
 ##Jouons avec Underscore

@@ -260,7 +260,7 @@ message.on("change:message", function() {
 On s’aperçoit que les abonnements se cumulent.
 Ce que nous venons de faire n’est par contre valable que pour une instance de modèle de type Post. Comment faire pour que cela soit valable pour tous les Posts ? En utilisant le constructeur du modèle, ou plus spécifiquement la méthode `initialize()` qui est appelée par le constructeur du modèle.
 
-  //TODO: parler de off()
+  //TODO : parler de off()
 
 
 ###Constructeur : initialize
@@ -353,7 +353,7 @@ Que nous pouvons utiliser de la manière suivante :
 
 ###Validation
 
-  //TODO: à faire
+  //TODO : à faire
 
 
 ###Comment détecter qu’un modèle a été changé par quelqu’un d’autre ?
@@ -557,7 +557,7 @@ De la même façon que `each()` il existe une méthode `filter()` (toujours issu
 ![BB](RSRC/06_19_MODS.png)
 
 
-###Trouver le 1er modèle d’une collection correspondant à un critère
+###Trouver le premier modèle d’une collection correspondant à un critère
 
 La méthode `find()` fonctionne comme `filter()` mais retourne le premier élément correspondant aux critères de recherche :
 
@@ -575,7 +575,7 @@ La méthode `find()` fonctionne comme `filter()` mais retourne le premier élém
 
 ###Autres méthodes de la collection
 
-  //TODO: à faire... en attendant lisez la doc de Backbone (ou faites moi une PR ;) )
+  //TODO : à faire... en attendant lisez la doc de Backbone (ou faites moi une PR ;) )
 
 
 ##Les collections “parlent” au serveur

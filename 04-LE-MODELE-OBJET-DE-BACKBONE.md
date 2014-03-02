@@ -107,7 +107,7 @@ var john = new Personne();
 var bob = new Personne("Bob", "Morane");
 ```
 
-**Warning:** ne jamais définir les propriétés en dehors du `constructor` !
+**Attention :** ne jamais définir les propriétés en dehors du `constructor` !
 
 
 Nous obtiendrons à l’éxécution :

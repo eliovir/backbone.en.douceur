@@ -152,12 +152,12 @@ Ainsi, quoiqu’il se passe, vous disposez de tous vos articles et ne serez plus
 
 Un objet Vue dans Backbone (`Backbone.View`) est généralement composé (au minimum) par convention de :
 
-- une propriété `el` : c'est l'élément du DOM (la partie de votre page html à laquelle on rattache l'objet `View`)
+- une propriété `el` : c'est l'élément du DOM (la partie de votre page HTML à laquelle on rattache l'objet `View`)
 - une méthode `initialize` (déclenchée à l’instanciation de la vue)
 - une méthode `render` (chargée d’afficher les données liées à la vue)
 
 
->>**Remarque** : Libre à vous de vous faire vos propres bonnes pratiques concernant les responsabilités de l’objet View afin de rendre votre code lisible et maintenable… Vous trouverez toujours quelqu’un pour les discuter mais c’est comme cela que l’on apprend et s’améliore… Et vous pouvez aussi avoir raison :-).
+>>**Remarque** : libre à vous de vous faire vos propres bonnes pratiques concernant les responsabilités de l’objet View afin de rendre votre code lisible et maintenable… Vous trouverez toujours quelqu’un pour les discuter mais c’est comme cela que l’on apprend et s’améliore… Et vous pouvez aussi avoir raison :-).
 
 Dans notre page `index.html`, nous allons ajouter un tag `<div id="posts_list"></div>` comme ceci :
 
@@ -271,7 +271,7 @@ Nous venons d’expliquer que tous les événements déclarés déclencheront la
 
 >>**Remarque** : une collection Backbone déclenche un `reset` lors de l’appel d’un `fetch`. La méthode `reset` vide la collection.
 
-  //TODO: faire un chapitre à part sur `_.bindAll`
+  //TODO : faire un chapitre à part sur `_.bindAll`
 
 Le code de notre vue doit donc ressembler à ceci :
 
@@ -365,7 +365,7 @@ blogPosts.all()
 })
 ```
 
-Puis changez le titre du 1er article :
+Puis changez le titre du premier article :
 
 ```javascript
 blogPosts.at(0).set("title","BACKBONE ???!!!")
@@ -531,7 +531,7 @@ Nous avons fait un peu de magie, passons donc à la sorcellerie ;) ...
 
 Vous vous souvenez ? Je vous avais parlé d'Underscore avec les templates ? Eh bien il est temps de les mettre en œuvre.
 
-###Définition de notre 1er template
+###Définition de notre premier template
 
 Dans la partie HTML de notre page, juste avant  `<div id="posts_list"></div>`, ajoutez le code ci-dessous (ce sera notre template) :
 
@@ -1363,7 +1363,7 @@ function Routes() {
     Obtenir la liste de tous les articles correspondant à un critère
     lorsque l'on appelle http://localhost:3000/blogposts/ en
     mode GET avec une requête en paramètre
-    ex : query : { "title" : "Mon permier article"} }
+    ex : query : { "title" : "Mon premier article"} }
   */
   app.get('/blogposts/:query', function(req, res) {
     console.log("GET (QUERY) : /blogposts/" + req.params.query);
@@ -1586,7 +1586,7 @@ events: {
 },
 ```
 
-En fait, je demande à mon objet `Backbone.View` d’intercepter tous les événements de type click sur les éléments html (de la vue considérée) dont la classe `css` est `.btn-primary` ou `.btn-default` et de déclencher respectivement les méthodes `onClickBtnLogin` ou `onClickBtnLogoff`.
+En fait, je demande à mon objet `Backbone.View` d’intercepter tous les événements de type click sur les éléments HTML (de la vue considérée) dont la classe `css` est `.btn-primary` ou `.btn-default` et de déclencher respectivement les méthodes `onClickBtnLogin` ou `onClickBtnLogoff`.
 
 >>**Remarque** : nous aurions très bien pu affecter des id aux boutons :
 
@@ -1709,7 +1709,7 @@ Si vous ouvrez un autre navigateur (une autre marque de navigateur pour être s�
 ![BB](RSRC/07_11_VIEWS.png)
 
 
-Essayez de vous connecter avec un utilisateur déjà loggé sur une autre session :
+Essayez de vous connecter avec un utilisateur déjà connecté sur une autre session :
 
 ![BB](RSRC/07_12_VIEWS.png)
 

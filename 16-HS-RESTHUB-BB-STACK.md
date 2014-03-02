@@ -20,7 +20,7 @@ Alors, RBS (je lui donne ce petit nom pour aller plus vite) ne vient pas seule, 
 - jquery (forcément)
 - async.js
 - require.js
-- etc. ...
+- etc.
 
 Et notamment des composants maison tels **backbone-datagrid** :
 

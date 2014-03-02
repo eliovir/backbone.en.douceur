@@ -21,7 +21,7 @@ Avant toute chose, il faut installer **Node.js**, vous trouverez tout ce qu'il f
 
 [http://nodejs.org/download/](http://nodejs.org/download/).
 
-Pensez aussi à installer **Npm** (node package manager) dans le cas de linux.
+Pensez aussi à installer **Npm** (node package manager) dans le cas de Linux.
 
 ###Installation de TypeScript
 
@@ -227,7 +227,7 @@ Après ce bref aperçu, voyons comment nous pouvons profiter des possibilités d
   declare var $: any;
   declare var _: any;
 
->>le type `any` est un peu à javascript ce que le Variant est à Visual Basic.
+>>le type `any` est un peu à JavaScript ce que le Variant est à Visual Basic.
 
 Côté Backbone, nous pourrions aussi écrire `declare var Backbone`, mais ça serait dommage de ne pas pouvoir utiliser la notation de classe de TypeScript et continuer "à l'ancienne" avec le modèle objet de Backbone.
 

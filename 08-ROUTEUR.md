@@ -7,7 +7,7 @@
 >>- *"Maîtriser" les urls*
 
 
->*Parmi les composants principaux de Backbone, il y a le Routeur (`Backbone.Router`), qui n’est pas obligatoire pour construire une application Backbone, mais qui est néanmoins très pratique. Son rôle principal est de déclencher des actions en fonction de l’url saisie dans votre navigateur, ou des liens cliqués.*
+>*Parmi les composants principaux de Backbone, il y a le Routeur (`Backbone.Router`), qui n’est pas obligatoire pour construire une application Backbone, mais qui est néanmoins très pratique. Son rôle principal est de déclencher des actions en fonction de l’URL saisie dans votre navigateur, ou des liens cliqués.*
 
 Dans une SPA (*Single Page Application*), la barre d’URL est un composant à part entière de votre application. C’est une partie à laquelle l’utilisateur accède facilement, vous ne pouvez donc pas l’ignorer, et votre application devra pouvoir réagir en fonction des actions de l’utilisateur. Nous allons donc mettre en œuvre `Backbone.Router` pour pouvoir « réagir » aux changements d’URL.
 Nous allons transformer notre vue d’affichages d'articles, pour qu’elle n’affiche plus le détail des articles, mais à la place un lien qui lorsqu’il sera cliqué affichera le détail du article. Nous verrons qu’ensuite cette méthode nous permettra d’accéder directement à partir de la barre de l’URL à des fonctionnalités de notre application.
@@ -67,7 +67,7 @@ Nous pouvons maintenant créer notre routeur. La propriété importante du route
 
 - `post/:id_post ` : lorsque le clic sur un lien de type `<a href="#post/{{id}}">Lire…</a>` la méthode `displayPost` du routeur sera appelée avec l’id du post en paramètre
 - `hello`, qui appellera la méthode `hello` si par exemple on saisit `http://localhost:3000/#hello` dans la barre d’URL du navigateur (notez le “#”, nous y reviendrons plus tard)
-- et enfin `*path` qui appellera la méthode `root` pour toute autre url comme `#/`, `/`…
+- et enfin `*path` qui appellera la méthode `root` pour toute autre URL comme `#/`, `/`…
 
 Le code qui sert à récupérer la liste des posts en provenance du serveur est déplacé dans la méthode `root` du routeur :
 

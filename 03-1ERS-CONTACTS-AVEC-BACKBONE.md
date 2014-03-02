@@ -1,4 +1,4 @@
-#1er contact … avec Backbone
+#premier contact … avec Backbone
 
 >*Sommaire*
 
@@ -272,7 +272,7 @@ Eh bien, nous avons défini une vue avec :
 
 - une propriété `el` (pour élément) à laquelle on “attache” le `<div>` dont l’id est : `“articles-collection-container”`. C’est dans ce `<div>` que seront affichés les articles,
 
-- une méthode `initialize`, qui affecte une méthode `template()` à l’instance de la vue en lui précisant que nous utiliserons le modèle de code HTML définit dans le `<div>` dont l’id est `“articles-collection-template”`,
+- une méthode `initialize`, qui affecte une méthode `template()` à l’instance de la vue en lui précisant que nous utiliserons le modèle de code HTML défini dans le `<div>` dont l’id est `“articles-collection-template”`,
 - une méthode `render`, qui va passer les données en paramètre à la méthode `template()` puis les afficher dans la page.
 
 Sauvegardez, relancez dans le navigateur et retournez encore dans la console pour saisir les commandes suivantes :
@@ -286,7 +286,7 @@ Sauvegardez, relancez dans le navigateur et retournez encore dans la console pou
 ![BB](RSRC/03_03_BB.png)
 
 
->>**Remarque** : Notez bien que la collection doit être transformée en chaîne JSON pour être interprétée dans le template ( `this.template({ articles : this.collection.toJSON() })` ) et que nous avons nommé le paramètre `articles` pour faire le lien avec le template ( `_.each(articles, function(article) {}` ).
+>>**Remarque** : notez bien que la collection doit être transformée en chaîne JSON pour être interprétée dans le template ( `this.template({ articles : this.collection.toJSON() })` ) et que nous avons nommé le paramètre `articles` pour faire le lien avec le template ( `_.each(articles, function(article) {}` ).
 
 ##Un dernier tour de magie pour clôturer le chapitre d’initiation : “binding”
 
@@ -306,7 +306,7 @@ this.collection.bind('remove', this.render);
 
 Nous venons "d'expliquer" à Backbone, qu'à chaque changement dans la collection, la vue doit rafraîchir son contenu. `_.bindAll` est une méthode d'Underscore ([http://documentcloud.github.com/underscore/#bindAll](http://documentcloud.github.com/underscore/#bindAll)) qui permet de conserver le contexte initial, c'est à dire : quel que soit "l'endroit" d'où l'on appelle la méthode `render`, ce sera bien l'instance de la vue (attachée à `this`) qui sera utilisée.
 
-  //TODO: à expliquer plus simplement
+  //TODO : à expliquer plus simplement
 
 Une dernière fois, sauvegardez, relancez le navigateur et retournez encore dans la console pour saisir les commandes suivantes :
 
@@ -314,7 +314,7 @@ Une dernière fois, sauvegardez, relancez le navigateur et retournez encore dans
 - Afficher les données : `articlesView.render()`
 - Ajouter un nouvel article à la collection : `blog.listeArticles.add(new blog.Article({title:"Hello", content:"Hello World"}))`
 
-**Et là, magique ! : L’affichage s'est actualisé tout seul :**
+**Et là, magique ! : l’affichage s'est actualisé tout seul :**
 
 
 ###Oh la vilaine erreur !!!

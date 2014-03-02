@@ -23,7 +23,7 @@ Cet ouvrage va traiter au moins les points suivants :
 - 10-Organiser son code *(publié)*
 - 11-"Securisation" de notre application *(publié)*
 - 12-Backbone.Sync *(à écrire)*
-- 13-Backbone & Coffeescript *(publié)*
+- 13-Backbone & CoffeeScript *(publié)*
 - 14-Autres frameworks MVC *(publié)*
 - 15-Backbone & Typescript *(publié)*
 - 16-Ressources *(à écrire)*

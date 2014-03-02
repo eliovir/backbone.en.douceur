@@ -24,7 +24,7 @@ Donc, selon moi (et d’autres), CoffeeScript permet de simplifier le JavaScript
 
 Le terme `function` disparaît au profit d’une « flèche » ! `return` disparaît complètement !!! (par défaut c'est la dernière ligne qui fait office de return) et les parenthèses ne sont pas partout obligatoires (ce qui facilite l’écriture de DSL) … et plus de point-virgule.
 
-*Fonction d’addition en javascript :*
+*Fonction d’addition en JavaScript :*
 
 ```javascript
 function addition(a, b) {
@@ -38,7 +38,7 @@ var c = addition(45, 12)
 
 Deviendra :
 
-*Fonction d’addition en Coffeescript :*
+*Fonction d’addition en CoffeeScript :*
 
 ```python
   addition = (a,b)->
@@ -279,7 +279,7 @@ Le plus gros défaut de CoffeeScript, reste la difficulté à debbuger du code C
 
 On pourrait ensuite se demander, mais que va devenir CoffeeScript dans le futur avec l’apparition de la nouvelle version de JavaScript ? Je vous répondrais, qu’avant que cette version soit déployée sur tous les postes de travail (donc que tout le monde dispose d’un navigateur de dernière génération) il va se passer plusieurs années et que CoffeeScript génère du code JavaScript qui fonctionne sur la majorité des navigateurs existants.
 
-Brendan Heich (le papa de JavaScript) a officiellement donné sa bénédiction « publique » à CoffeeScript, nul doute que Jeremy Ashkenas ne fasse évoluer CoffeeScript en fonction des spécifications javascript pour garder une compatibilté ascendante et descendante. Pour rappel, en début de page du site de CoffeeScript, il est écrit : **« The golden rule of CoffeeScript is: "It's just JavaScript" »**.
+Brendan Heich (le papa de JavaScript) a officiellement donné sa bénédiction « publique » à CoffeeScript, nul doute que Jeremy Ashkenas ne fasse évoluer CoffeeScript en fonction des spécifications JavaScript pour garder une compatibilté ascendante et descendante. Pour rappel, en début de page du site de CoffeeScript, il est écrit : **« The golden rule of CoffeeScript is: "It's just JavaScript" »**.
 
 >>Pour ma part, je pense que c’est un excellent outil d’apprentissage (il génère du code JavaScript « propre ») mais sur un projet de réalisation professionnel, il est à réserver aux « gurus » qui maîtrise déjà JavaScript.
 
@@ -289,7 +289,7 @@ Attention, un challenger de poids vient de naître dans le monde des transpilers
 
 Avant toute chose, sauvegardez votre arborescence applicative à un autre emplacement pour pouvoir la réutiliser.
 
-###Installation de Coffeescript
+###Installation de CoffeeScript
 
 L’installation de CoffeeScript est très simple, elle s’effectue en mode commande avec `npm` (installé en même temps que Node.js) :
 

@@ -348,7 +348,7 @@ haveToBeAdmin = function(req, res, next) {
 }
 ```
 
->>**Remarque** : Si la condition est vérifiée, la fonction `next()` est appelée, elle correspond au traitement de la route sécurisée.
+>>**Remarque** : si la condition est vérifiée, la fonction `next()` est appelée, elle correspond au traitement de la route sécurisée.
 
 Et sécurisons ensuite nos routes de la manière suivante :
 

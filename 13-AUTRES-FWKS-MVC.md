@@ -161,7 +161,7 @@ Je trouve CanJS facile d'accès. Il propose de nombreux plug-ins et apparaît tr
 D'un point de vue code, il n'a pas la concision de Backbone, il y a beaucoup plus de chose, mais il propose aussi beaucoup plus de services “clés en main”.
 Un autre avantage non négligeable est la documentation qui est claire, bien faite et facile d'accès.
 
->>**Remarque** : Si vous avez un doute sur la pertinence de votre choix, je vous conseille d’aller faire un tour sur [https://github.com/addyosmani/todomvc](https://github.com/addyosmani/todomvc), où Addy Osmani, un googler réputé et spécialiste entre autre de Backbone maintient (avec d’autres développeurs) des exemples de “TODO list” MVC javascript pour chacun des frameworks MVC (ou pas complètement MVC d’ailleurs) du moment. Si le framework que vous étudiez est dans la liste, il y a des chances que ce ne soit pas un mauvais choix, de plus vous disposerez d’un exemple de code (dans les règles de l’art) pour commencer.
+>>**Remarque** : si vous avez un doute sur la pertinence de votre choix, je vous conseille d’aller faire un tour sur [https://github.com/addyosmani/todomvc](https://github.com/addyosmani/todomvc), où Addy Osmani, un googler réputé et spécialiste entre autre de Backbone maintient (avec d’autres développeurs) des exemples de “TODO list” MVC javascript pour chacun des frameworks MVC (ou pas complètement MVC d’ailleurs) du moment. Si le framework que vous étudiez est dans la liste, il y a des chances que ce ne soit pas un mauvais choix, de plus vous disposerez d’un exemple de code (dans les règles de l’art) pour commencer.
 
 ##Spine
 
@@ -173,7 +173,7 @@ Un autre avantage non négligeable est la documentation qui est claire, bien fai
 - Spine propose des Contrôleurs ! … qui ne sont ni plus ni moins l'équivalent des Backbones.Views,
 - … et considère que les vues sont représentée par les templates. À ce sujet Spine propose tout un mécanisme évolué mais nous n'utiliserons que Mustache de la même façon qu'avec Backbone.
 
-Spine peut s'installer avec **npm** (node package manager) et ainsi proposer des outils supplémentaires permettant de générer un squelette de projet, de gérer les dépendances… Mais pour notre exemple, nous allons le faire "à l'ancienne", l'objectif étant de ne modifier en rien la stack serveur existante. Vous pouvez donc vous préparer un environnement identique à celui du chapitre sur Coffeescript ave un répertoire `public.coffee` pour votre code coffeescript et n’oubliez pas le fichier de build `Cakefile`.
+Spine peut s'installer avec **npm** (node package manager) et ainsi proposer des outils supplémentaires permettant de générer un squelette de projet, de gérer les dépendances… Mais pour notre exemple, nous allons le faire "à l'ancienne", l'objectif étant de ne modifier en rien la stack serveur existante. Vous pouvez donc vous préparer un environnement identique à celui du chapitre sur CoffeeScript ave un répertoire `public.coffee` pour votre code coffeescript et n’oubliez pas le fichier de build `Cakefile`.
 
 
 Un modèle Spine se décrit de la manière suivante :
@@ -361,7 +361,7 @@ Globalement, ce qui m'a intéressé tant dans CanJS que dans Spine, c'est leur s
 
 Knockout [http://knockoutjs.com](http://knockoutjs.com), l'OVNI de l’équipe, on ne parle plus de MVC mais du pattern “Model-View-View Model”, très très orienté IHM, puisqu'il renforce le lien entre les données et l'IHM, c'est un peu déroutant (mais où est donc encore passé le contrôleur !?), mais cela permet de réaliser des interfaces très réactives en fonction des changements et évolutions des données.
 
-En ce qui concerne **Knockout**, nous n'allons pas repartir de nos exemples précédents, car ce qui caractérise **Knockout**, c'est son système de **"binding"** qui "frise" le **"magique"** : vos actions sur les modèles sont directement impactées sur les vues (le DOM HTML) et inversement vos actions sur le DOM (saisie dans une zone de texte par exemple) sont directement reflétées sur les modèles. Le concept de modèle en tant que tel (comme dans Backbone par exemple) n'existe pas, donc à vous de les écrire, mais **Knockout** apporte les outils nécessaires pour "faire" des **"propriétés observables"** et des **"tableaux observables"** qui seront ensuite "liés" aux vues qui ne sont ni plus ni moins que votre code html.
+En ce qui concerne **Knockout**, nous n'allons pas repartir de nos exemples précédents, car ce qui caractérise **Knockout**, c'est son système de **"binding"** qui "frise" le **"magique"** : vos actions sur les modèles sont directement impactées sur les vues (le DOM HTML) et inversement vos actions sur le DOM (saisie dans une zone de texte par exemple) sont directement reflétées sur les modèles. Le concept de modèle en tant que tel (comme dans Backbone par exemple) n'existe pas, donc à vous de les écrire, mais **Knockout** apporte les outils nécessaires pour "faire" des **"propriétés observables"** et des **"tableaux observables"** qui seront ensuite "liés" aux vues qui ne sont ni plus ni moins que votre code HTML.
 
 Donc vous l'aurez compris, **Knockout** met en oeuvre le pattern **Observer** :
 
@@ -647,7 +647,7 @@ Vous trouverez aussi des frameworks JavaScript MVC “Client et Serveur”, tels
 
 ##Conclusion
 
-L’éco-système des framworks MVC JavaScript est vaste et il est difficile de faire un choix. L'important est de vous faire votre propre avis, d'utiliser les outils avec vous êtes le plus à l'aise, mais tout en étant sûr que vous avez chosi un framework largement utilisé par d'autres, avec une communauté active. Un dernier petit conseil : le plus souvent les frameworks JavaScript affiche leur repository sur GitHub (“the place to be”), alors tout le monde peut y être (j’y suis), mais c’est un 1er critère, ensuite un des gros avantage de GitHub, c’est que vous pouvez voir facilement l’activité autour du framework :
+L’éco-système des framworks MVC JavaScript est vaste et il est difficile de faire un choix. L'important est de vous faire votre propre avis, d'utiliser les outils avec vous êtes le plus à l'aise, mais tout en étant sûr que vous avez chosi un framework largement utilisé par d'autres, avec une communauté active. Un dernier petit conseil : le plus souvent les frameworks JavaScript affiche leur repository sur GitHub (“the place to be”), alors tout le monde peut y être (j’y suis), mais c’est un premier critère, ensuite un des gros avantage de GitHub, c’est que vous pouvez voir facilement l’activité autour du framework :
 
 - Qui sont les contributeurs (et à quels autres projets il participent) ?
 - Depuis combien de temps le code n’a pas été mis à jour ?
