@@ -1,6 +1,5 @@
 #Préambule & Remerciements
 
-<<<<<<< HEAD
 J'ai eu la prétention d'écrire un livre, et sur Backbone en plus ! En fait il n'existe peu de littérature française spécialisée sur des frameworks, qui plus est des frameworks JavaScript, alors que nos amis anglo-saxons écrivent sur Dart, CoffeeScript, Backbone, etc..
 Au départ ce "bouquin" est un projet un peu fou, puisque j'ai même contacté les éditions Eyrolles (quand je vous disais que j'étais prétentieux ;) ). Et ils ont été d'accord ! Alors vous vous demandez pourquoi, finalement je publie ça de manière open source ?
 
