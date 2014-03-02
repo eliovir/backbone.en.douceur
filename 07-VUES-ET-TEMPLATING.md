@@ -2,7 +2,7 @@
 
 >*Sommaire*
 
->>- *1ère vue*
+>>- *Première vue*
 >>- *Mise à jour automatique de l’affichage*
 >>- *Sous-vues*
 >>- *Templating*
@@ -16,7 +16,7 @@ Le composant View de Backbone est peut-être celui qui génère le plus de polé
 ##Préparons le terrain
 
 Pour repartir sur de bonnes bases, nous allons supprimer la base de données avec laquelle nous avons déjà bien joué. Donc supprimez le fichier `blog.db` de la racine de votre application.
-Ensuite, modifiez le code javascript de la page `index.html` dans le répertoire `/public`, donc dans la partie `<script></script>`, pour instancier une collection : (on ajoute : `window.blogPosts = new Posts();`)
+Ensuite, modifiez le code JavaScript de la page `index.html` dans le répertoire `/public`, donc dans la partie `<script></script>`, pour instancier une collection : (on ajoute : `window.blogPosts = new Posts();`)
 
 *Instancier une collection :*
 
@@ -44,7 +44,7 @@ $(function() {
 });
 ```
 
-Sauvegardez, puis relancez votre application (`node app.js ou nodemon app.js`), dans le navigateur accédez à la page principale ([http://localhost:3000/](http://localhost:3000/)), pour enfin ouvrir la console de votre navigateur. Nous allons créer des modèles, que nous ajouterons à la collection blogposts.
+Sauvegardez, puis relancez votre application (`node app.js` ou `nodemon app.js`), dans le navigateur accédez à la page principale ([http://localhost:3000/](http://localhost:3000/)), pour enfin ouvrir la console de votre navigateur. Nous allons créer des modèles, que nous ajouterons à la collection blogposts.
 
 ###Création et sauvegarde des modèles
 
@@ -63,7 +63,7 @@ Commencez par saisir ceci dans la console du navigateur :
 
   blogPosts.add([
   new Post({
-  title: "Premier Message",
+  title: "Premier article",
   message: messages[0],
   date: new Date(2012, 10, 23, 7, 4, 0, 0),
   author: "bob"
@@ -102,9 +102,9 @@ Commencez par saisir ceci dans la console du navigateur :
   ])
 ```
 
->>**Remarque** : en javascript, pour les dates, le chiffre 10 correspond à Novembre (faire +1)
+>>**Remarque** : en JavaScript, pour les dates, le chiffre 10 correspond à novembre (0 correspond à janvier, il faut décaler d'un).
 
-Nous avons donc maintenant 5 Posts dans notre collection. Pour ne pas avoir à tout re-saisir à chaque fois, sauvegardez vos posts (toujours dans la console du navigateur) :
+Nous avons donc maintenant 5 Posts dans notre collection. Pour ne pas avoir à tout re-saisir à chaque fois, sauvegardez vos articles (toujours dans la console du navigateur) :
 
 *Sauvegarder les modèles en base :*
 
@@ -145,19 +145,19 @@ Si tout va bien (il n’y a pas de raison), vous devriez obtenir ceci :
 ![BB](RSRC/07_02_VIEWS.png)
 
 
-Ainsi, quoiqu’il se passe, vous disposez de tous vos messages et ne serez plus obligés de les ressaisir pour la suite des exercices. Nous pouvons donc entrer dans le vif du sujet.
+Ainsi, quoiqu’il se passe, vous disposez de tous vos articles et ne serez plus obligés de les ressaisir pour la suite des exercices. Nous pouvons donc entrer dans le vif du sujet.
 
 
 ##1ère vue
 
 Un objet Vue dans Backbone (`Backbone.View`) est généralement composé (au minimum) par convention de :
 
-- une propriété `el` : c'est l'élément du DOM (la partie de votre page html à laquelle on rattache l'objet `View`)
+- une propriété `el` : c'est l'élément du DOM (la partie de votre page HTML à laquelle on rattache l'objet `View`)
 - une méthode `initialize` (déclenchée à l’instanciation de la vue)
 - une méthode `render` (chargée d’afficher les données liées à la vue)
 
 
->>**Remarque** : Libre à vous de vous faire vos propres bonnes pratiques concernant les responsabilités de l’objet View afin de rendre votre code lisible et maintenable… Vous trouverez toujours quelqu’un pour les discuter mais c’est comme cela que l’on apprend et s’améliore… Et vous pouvez aussi avoir raison :-).
+>>**Remarque** : libre à vous de vous faire vos propres bonnes pratiques concernant les responsabilités de l’objet View afin de rendre votre code lisible et maintenable… Vous trouverez toujours quelqu’un pour les discuter mais c’est comme cela que l’on apprend et s’améliore… Et vous pouvez aussi avoir raison :-).
 
 Dans notre page `index.html`, nous allons ajouter un tag `<div id="posts_list"></div>` comme ceci :
 
@@ -170,9 +170,9 @@ Dans notre page `index.html`, nous allons ajouter un tag `<div id="posts_list"><
 </div>
 ```
 
-Et modifier le code javascript de la manière suivante : entre la définition de la collection et son instanciation, ajoutez le code de notre première vue :
+Et modifier le code JavaScript de la manière suivante : entre la définition de la collection et son instanciation, ajoutez le code de notre première vue :
 
-*1ère vue pour afficher le contenu de la collection :*
+*Première vue pour afficher le contenu de la collection :*
 
 ```javascript
 window.PostsListView = Backbone.View.extend({
@@ -200,7 +200,7 @@ window.PostsListView = Backbone.View.extend({
 
 ###Explications & utilisation
 
-Notre vue `PostsListView` est reliée au tag `<div id="posts_list"></div>` par la propriété `el` qui n’est ni plus ni moins qu'un objet **jQuery**. La méthode `initialize` (qui sera appelée à l’instanciation de la vue) prend en paramètre les données que nous souhaitons afficher et les affecte à la propriété `collection` de la vue. La méthode `render`, vide le contenu du tag `<div id="posts_list"></div>`, parcourt la collection de données pour construire le code html, et enfin affiche celui-ci par la commande `$(this.el).append(html)`. Mais utilisons directement notre code, ce sera plus « parlant ».
+Notre vue `PostsListView` est reliée au tag `<div id="posts_list"></div>` par la propriété `el` qui n’est ni plus ni moins qu'un objet **jQuery**. La méthode `initialize` (qui sera appelée à l’instanciation de la vue) prend en paramètre les données que nous souhaitons afficher et les affecte à la propriété `collection` de la vue. La méthode `render`, vide le contenu du tag `<div id="posts_list"></div>`, parcourt la collection de données pour construire le code HTML, et enfin affiche celui-ci par la commande `$(this.el).append(html)`. Mais utilisons directement notre code, ce sera plus « parlant ».
 
 Sauvegardez, rafraichissez la page et en mode console, passez les étapes qui suivent :
 
@@ -227,7 +227,7 @@ postsListView = new PostsListView(blogPosts)
 postsListView.render()
 ```
 
-Et vous obtenez la liste de vos messages :
+Et vous obtenez la liste de vos articles :
 
 ![BB](RSRC/07_03_VIEWS.png)
 
@@ -269,9 +269,9 @@ this.collection.bind('reset', this.render);
 
 Nous venons d’expliquer que tous les événements déclarés déclencheront la méthode `render` de la vue. Et ensuite nous avons expliqué que la méthode `reset` de la collection déclenchera la méthode `render` de la vue.
 
->>**Remarque** : Une collection Backbone déclenche un `reset` lors de l’appel d’un `fetch`. La méthode `reset` vide la collection.
+>>**Remarque** : une collection Backbone déclenche un `reset` lors de l’appel d’un `fetch`. La méthode `reset` vide la collection.
 
-  //TODO: faire un chapitre à part sur `_.bindAll`
+  //TODO : faire un chapitre à part sur `_.bindAll`
 
 Le code de notre vue doit donc ressembler à ceci :
 
@@ -365,19 +365,19 @@ blogPosts.all()
 })
 ```
 
-Puis changez le titre du 1er post :
+Puis changez le titre du premier article :
 
 ```javascript
 blogPosts.at(0).set("title","BACKBONE ???!!!")
 ```
 
-ou ajoutez un post :
+ou ajoutez un article :
 
 ```javascript
 blogPosts.add(new Post({title:"HELLO",message : "salut", author : "k33g"}))
 ```
 
-ou encore supprimez un post :
+ou encore supprimez un article :
 
 ```javascript
 blogPosts.remove(blogPosts.at(0));
@@ -439,7 +439,7 @@ window.PostsListView = Backbone.View.extend({
 });
 ```
 
-Puis à la fin du code javascript, ajoutez le code qui instancie la vue, ainsi que le code qui « charge » la collection (on se souvient que le render de la vue sera déclenché automatiquement une fois le `fetch` de la collection terminé.) :
+Puis à la fin du code JavaScript, ajoutez le code qui instancie la vue, ainsi que le code qui « charge » la collection (on se souvient que le rendu de la vue sera déclenché automatiquement une fois le `fetch` de la collection terminé.) :
 
 ```javascript
 window.postsListView = new PostsListView({
@@ -531,7 +531,7 @@ Nous avons fait un peu de magie, passons donc à la sorcellerie ;) ...
 
 Vous vous souvenez ? Je vous avais parlé d'Underscore avec les templates ? Eh bien il est temps de les mettre en œuvre.
 
-###Définition de notre 1er template
+###Définition de notre premier template
 
 Dans la partie HTML de notre page, juste avant  `<div id="posts_list"></div>`, ajoutez le code ci-dessous (ce sera notre template) :
 
@@ -539,7 +539,7 @@ Dans la partie HTML de notre page, juste avant  `<div id="posts_list"></div>`, a
 <!-- template pour les posts -->
 <script type="text/template" id="posts_list_template">
 
-<% _.each(posts ,function(post){ %>
+<% _.each(posts, function(post){ %>
   <h1><%= post.get("title") %></h1><hr>
   <b>par : <%= post.get("author") %></b> le : <%= post.get("date") %><br>
   <p><%= post.get("message") %></p>
@@ -550,7 +550,7 @@ Dans la partie HTML de notre page, juste avant  `<div id="posts_list"></div>`, a
 
 >>**Remarque** : le fait de définir le template à l'intérieur de `<script type="text/template"></script>` fait que le modèle de template ne sera pas affiché dans la page.
 
-En fait (grâce à Underscore), nous venons de définir le template dont la vue Backbone va se servir pour afficher les données. Il faudra lui passer pour cela un **tableau** de posts.
+En fait (grâce à Underscore), nous venons de définir le template dont la vue Backbone va se servir pour afficher les données. Il faudra lui passer pour cela un **tableau** d'articles.
 Modifions donc notre vue de la façon suivante :
 
 ```javascript
@@ -576,11 +576,11 @@ window.PostsListView = Backbone.View.extend({
 });
 ```
 
-Nous avons inséré dans la méthode `initialize` : `this.template = _.template($("#posts_list_template").html());`, où nous expliquons que la définition du template se trouve dans la zone ayant `posts_list_template` pour `id`. Nous avons aussi simplifié grandement le contenu de la méthode render, où nous faisons générer le contenu HTML à partir du template et des données.
+Nous avons inséré dans la méthode `initialize` : `this.template = _.template($("#posts_list_template").html());`, où nous expliquons que la définition du template se trouve dans la zone ayant `posts_list_template` pour `id`. Nous avons aussi simplifié grandement le contenu de la méthode `render`, où nous faisons générer le contenu HTML à partir du template et des données.
 
 >>**Remarque** : notez bien que `this.collection.models` est un tableau de modèles.
 
-Vous pouvez sauvegarder et rafraîchir, les résultats sont identiques aux précédents, mais il est beaucoup plus facile de créer et modifier vos templates html.
+Vous pouvez sauvegarder et rafraîchir, les résultats sont identiques aux précédents, mais il est beaucoup plus facile de créer et modifier vos templates HTML.
 
 ![BB](RSRC/07_05_VIEWS.png)
 
@@ -591,9 +591,9 @@ Il est possible de faire des sous-vues pour gérer différentes parties de votre
 
 Nous allons donc profiter des possibilités de Twitter Bootstrap pour revoir un peu la mise en page de notre « site » et du même coup mettre en œuvre le concept de sous-vue.
 
-###Réorganisation du code html
+###Réorganisation du code HTML
 
-Modifions notre code html de la manière suivante :
+Modifions notre code HTML de la manière suivante :
 
 ```html
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -612,7 +612,7 @@ Modifions notre code html de la manière suivante :
       <script type="text/template" id="blog_sidebar_template">
         <h2>Les 3 derniers :</h2>
         <ul>
-        <% _.each(posts ,function(post){ %>
+        <% _.each(posts, function(post){ %>
           <li><%= post.get("title") %></li>
         <% }); %>
         </ul>
@@ -630,7 +630,7 @@ Modifions notre code html de la manière suivante :
       <!-- template pour les posts -->
       <script type="text/template" id="posts_list_template">
 
-        <% _.each(posts ,function(post){ %>
+        <% _.each(posts, function(post){ %>
           <h1><%= post.get("title") %></h1><hr>
           <b>par : <%= post.get("author") %></b> le : <%= post.get("date") %><br>
           <p><%= post.get("message") %></p>
@@ -803,7 +803,7 @@ Un des plus utilisé est Mustache.js ([http://mustache.github.com/](http://musta
 <script src="libs/vendors/mustache.js"></script>
 ```
 
-Et nous allons une fois de plus "casser" notre code html.
+Et nous allons une fois de plus "casser" notre code HTML.
 
 ###Redéfinissons donc nos templates
 
@@ -813,7 +813,7 @@ Et nous allons une fois de plus "casser" notre code html.
 <script type="text/template" id="blog_sidebar_template">
   <h2>Les 3 derniers :</h2>
   <ul>
-  <% _.each(posts ,function(post){ %>
+  <% _.each(posts, function(post){ %>
       <li><%= post.get("title") %></li>
   <% }); %>
   </ul>
@@ -838,7 +838,7 @@ Et nous allons une fois de plus "casser" notre code html.
 ```html
 <script type="text/template" id="posts_list_template">
 
-  <% _.each(posts ,function(post){ %>
+  <% _.each(posts, function(post){ %>
     <h1><%= post.get("title") %></h1><hr>
     <b>par : <%= post.get("author") %></b> le : <%= post.get("date") %><br>
     <p><%= post.get("message") %></p>
@@ -933,7 +933,7 @@ Sauvegardez, lancez, il n’y a pas de changement, l'affichage est identique (he
 
 ##Gestion des événements dans les vues
 
-Les objets de type Backbone.View peuvent aussi gérer les événements (mouseover, click, etc.). Nous allons donc profiter de ce paragraphe pour mettre en œuvre un système d’authentification dans notre application, qui utilisera cette possibilité. Il est temps de retourner travailler côté serveur quelques instants.
+Les objets de type `Backbone.View` peuvent aussi gérer les événements (`mouseover`, `click`, etc.). Nous allons donc profiter de ce paragraphe pour mettre en œuvre un système d’authentification dans notre application, qui utilisera cette possibilité. Il est temps de retourner travailler côté serveur quelques instants.
 
 Si vous voulez en savoir plus sur les événements dans les vues Backbone, je vous engage fortement à lire la documentation : [http://backbonejs.org/#View-delegateEvents](http://backbonejs.org/#View-delegateEvents).
 
@@ -1015,8 +1015,8 @@ Nous aurons besoin de nous authentifier. Il nous faut donc d’abord une fonctio
 ```javascript
 function findUserByMail(email) {
   /*
-    Permet de vérifier si un utilisateur est déjà loggé
-  */
+   * Permet de vérifier si un utilisateur est déjà connecté
+   */
   return connectedUsers.filter(function(user) {
     return user.email == email;
   })[0];
@@ -1033,13 +1033,13 @@ app.post('/authenticate', function(req, res) {
   //Je récupère les information de connexion de l'utilisateur
   var user = req.body;
 
-  //est ce que l'email est déjà utilisé ?
+  //Est ce que l'email est déjà utilisé ?
   if (findUserByMail(user.email)) {
     res.json({
       infos: "Utilisateur déjà connecté"
     })
-  } else { //si l'email n'est pas utilisé
-    //Je cherche l'utilisateur dans la base de données
+  } else { //si l'email n'est pas utilisé,
+    //Jj cherche l'utilisateur dans la base de données
     users.find({
       email: user.email,
       password: user.password
@@ -1144,11 +1144,11 @@ app.get('/alreadyauthenticated', function(req, res) {
 });
 ```
 
-Nous somme maintenant prêts à utiliser tout cela côté client. Le code définitif de `app.js` devrait ressembler à ceci :
+Nous sommes maintenant prêts à utiliser tout cela côté client. Le code définitif de `app.js` devrait ressembler à ceci :
 
 ```javascript
 /*--------------------------------------------
-  Déclaration des librairies
+  Déclaration des bibliothèques
 --------------------------------------------*/
 var express = require('express'),
   nStore = require('nstore'),
@@ -1169,7 +1169,7 @@ app.use(express.session({
 }));
 
 /*--------------------------------------------
-  Définition des "bases" posts & users
+  Définition des "tables" posts & users
 --------------------------------------------*/
 var posts, users;
 
@@ -1219,8 +1219,8 @@ function addUsers() {
 
 function findUserBySession(sessionID) {
   /*
-    Permet de retrouver un utilisateur par son id de session
-  */
+   * Permet de retrouver un utilisateur par son id de session
+   */
   return connectedUsers.filter(function(user) {
     return user.sessionID == sessionID;
   })[0];
@@ -1229,8 +1229,8 @@ function findUserBySession(sessionID) {
 
 function findUserByMail(email) {
   /*
-    Permet de vérifier si un utilisateur est déjà loggé
-  */
+   * Permet de vérifier si un utilisateur est déjà connecté
+   */
   return connectedUsers.filter(function(user) {
     return user.email == email;
   })[0];
@@ -1251,10 +1251,10 @@ function Routes() {
 
     var alreadyAuthenticatedUser = findUserBySession(req.sessionID);
 
-    /*  Si je suis déjà authentifié,
-      renvoyer les informations utilisateur
-      sans le mot de passe bien sûr
-    */
+    /* Si je suis déjà authentifié,
+     * renvoyer les informations utilisateur
+     * sans le mot de passe bien sûr
+     */
     if (alreadyAuthenticatedUser) {
       res.json({
         email: alreadyAuthenticatedUser.email,
@@ -1273,13 +1273,13 @@ function Routes() {
     //Je récupère les information de connexion de l'utilisateur
     var user = req.body;
 
-    //est ce que l'email est déjà utilisé ?
+    //Est ce que l'email est déjà utilisé ?
     if (findUserByMail(user.email)) {
       res.json({
         infos: "Utilisateur déjà connecté"
       })
-    } else { //si l'email n'est pas utilisé
-      //Je cherche l'utilisateur dans la base de données
+    } else { //Si l'email n'est pas utilisé,
+      //je cherche l'utilisateur dans la base de données
       users.find({
         email: user.email,
         password: user.password
@@ -1336,7 +1336,7 @@ function Routes() {
   /*======= Fin des routes "authentification" =======*/
 
   /*
-    Obtenir la liste de tous les posts lorsque
+    Obtenir la liste de tous les articles lorsque
     l'on appelle http://localhost:3000/blogposts
     en mode GET
   */
@@ -1361,10 +1361,10 @@ function Routes() {
   });
 
   /*
-    Obtenir la liste de tous les posts correspondant à un critère
+    Obtenir la liste de tous les articles correspondant à un critère
     lorsque l'on appelle http://localhost:3000/blogposts/ en
     mode GET avec une requête en paramètre
-    ex : query : { "title" : "Mon 1er post"} }
+    ex : query : { "title" : "Mon premier article"} }
   */
   app.get('/blogposts/:query', function(req, res) {
     console.log("GET (QUERY) : /blogposts/" + req.params.query);
@@ -1387,8 +1387,8 @@ function Routes() {
   });
 
   /*
-    Retrouver un post par sa clé unique lorsque
-    l'on appelle http://localhost:3000/blogpost/identifiant_du_post
+    Retrouver un article par sa clé unique lorsque
+    l'on appelle http://localhost:3000/blogpost/identifiant_article
     en mode GET
   */
 
@@ -1407,9 +1407,9 @@ function Routes() {
   });
 
   /*
-    Créer un nouveau post lorsque
+    Créer un nouvel article lorsque
     l'on appelle http://localhost:3000/blogpost
-    avec en paramètre le post au format JSON
+    avec en paramètre l'article au format JSON
     en mode POST
   */
   app.post('/blogpost', function(req, res) {
@@ -1432,9 +1432,9 @@ function Routes() {
 
 
   /*
-    Mettre à jour un post lorsque
+    Mettre à jour un article lorsque
     l'on appelle http://localhost:3000/blogpost
-    avec en paramètre le post au format JSON
+    avec en paramètre l'article au format JSON
     en mode PUT
   */
   app.put('/blogpost/:id', function(req, res) {
@@ -1455,8 +1455,8 @@ function Routes() {
   });
 
   /*
-    supprimer un post par sa clé unique lorsque
-    l'on appelle http://localhost:3000/blogpost/identifiant_du_post
+    supprimer un article par sa clé unique lorsque
+    l'on appelle http://localhost:3000/blogpost/identifiant_article
     en mode DELETE
   */
   app.delete('/blogpost/:id', function(req, res) {
@@ -1508,9 +1508,9 @@ Nous allons donc commencer par créer le template du formulaire d’authentifica
 </form>
 ```
 
-###L’objet Backbone.View : Login.View
+###L’objet `Backbone.View` : Login.View
 
-Notre composant d’authentification aura 2 zones de saisie (email et mot de passe), un bouton de login, un bouton pour se déconnecter, une zone pour afficher un message (bienvenue, erreur…).
+Notre composant d’authentification aura 2 zones de saisie (email et mot de passe), un bouton de connexion, un bouton pour se déconnecter, une zone pour afficher un message (bienvenue, erreur…).
 Le composant devra aussi pouvoir vérifier si l’utilisateur est toujours connecté en cas de rafraîchissement de la page.
 
 ```javascript
@@ -1560,7 +1560,7 @@ window.loginView = new LoginView();
 /*======= Fin authentification =======*/
 ```
 
-A l’initialisation (`initialize`) la vue va vérifier si l’utilisateur en cours est déjà authentifié (par exemple vous vous êtes signé, mais vous avez rafraîchi la page), en appelant la route `/alreadyauthenticated`, si l’utilisateur est déjà authentifié, la méthode `render` de la vue est appelée avec un message de bienvenue et les informations de l’utilisateur ( `that.render("Bienvenue",dataFromServer);` ) dans le cas contraire la méthode `render` est aussi appelée mais avec un message signifiant que l’utilisateur n’est pas connecté ( `that.render("???",{firstName:"John", lastName:"Doe"});` ).
+A l’initialisation (`initialize`) la vue va vérifier si l’utilisateur en cours est déjà authentifié (par exemple vous vous êtes connecté, mais vous avez rafraîchi la page), en appelant la route `/alreadyauthenticated`, si l’utilisateur est déjà authentifié, la méthode `render` de la vue est appelée avec un message de bienvenue et les informations de l’utilisateur ( `that.render("Bienvenue",dataFromServer);` ) dans le cas contraire la méthode `render` est aussi appelée mais avec un message signifiant que l’utilisateur n’est pas connecté ( `that.render("???",{firstName:"John", lastName:"Doe"});` ).
 
 ###Ajoutons une gestion des événements
 
@@ -1587,7 +1587,7 @@ events: {
 },
 ```
 
-En fait je demande à mon objet `Backbone.View` d’intercepter tous les événements de type click sur les éléments html (de la vue considérée) dont la classe `css` est `.btn-primary` ou `.btn-default` et de déclencher respectivement les méthodes `onClickBtnLogin` ou `onClickBtnLogoff`.
+En fait, je demande à mon objet `Backbone.View` d’intercepter tous les événements de type click sur les éléments HTML (de la vue considérée) dont la classe `css` est `.btn-primary` ou `.btn-default` et de déclencher respectivement les méthodes `onClickBtnLogin` ou `onClickBtnLogoff`.
 
 >>**Remarque** : nous aurions très bien pu affecter des id aux boutons :
 
@@ -1710,7 +1710,7 @@ Si vous ouvrez un autre navigateur (une autre marque de navigateur pour être s�
 ![BB](RSRC/07_11_VIEWS.png)
 
 
-Essayez de vous connecter avec un utilisateur déjà loggé sur une autre session :
+Essayez de vous connecter avec un utilisateur déjà connecté sur une autre session :
 
 ![BB](RSRC/07_12_VIEWS.png)
 

@@ -2,24 +2,24 @@
 
 >*Sommaire*
 
->>- *Les prérequis & IDE pour faire fonctionner Backbone*
+>>- *Les pré-requis & IDE pour faire fonctionner Backbone*
 >>- *jQuery en 15 minutes*
 >>- *Underscore.js en 10 minutes*
 
 
 >*Où nous allons lister les éléments nécessaires pour installer Backbone et commencer à développer avec.*
 
-Le plus frustrant lorsque l'on débute la lecture d'un ouvrage informatique dans l'optique de s'auto-former c'est que l'on est obligé de lire de nombreux chapitres avant de pouvoir commencer à s'y mettre. Je vais donc tenter de vous faire faire un 1er tour de Backbone.js en 20 minutes pour que vous en saisissiez rapidement la "substantifique moelle". Mais avant d’utiliser Backbone, quelques prérequis sont nécessaires.
+Le plus frustrant lorsque l'on débute la lecture d'un ouvrage informatique dans l'optique de s'auto former c'est que l'on est obligé de lire de nombreux chapitres avant de pouvoir commencer à s'y mettre. Je vais donc tenter de vous faire faire un premier tour de Backbone.js en 20 minutes pour que vous en saisissiez rapidement la "substantifique moelle". Mais avant d’utiliser Backbone, quelques prérequis sont nécessaires.
  
 
 ##Prérequis : les dépendances de Backbone
 
-Backbone a besoin au minimum de deux autres frameworks javascript pour fonctionner :
+Backbone a besoin au minimum de deux autres frameworks JavaScript pour fonctionner :
 
-- **Underscore.js** par le créateur de Backbone. Underscore est un ensemble d'outils qui permettent d'étendre javascript et qui vont vous faciliter la vie dans la gestion des Collections, Arrays, Objects... mais aussi vous permettre de faire du templating (nous verrons plus loin ce que c'est). Le gros avantage d'Underscore, c'est qu'il fonctionne quel que soit votre navigateur (comme Backbone). Underscore est une dépendance de Backbone, il est donc indispensable.
-- **jQuery**, qui est un framework dédié à la manipulation des éléments de votre page HTML (on parlera du DOM, Document Object Model) mais aussi aux appels de type Ajax (nécessaires pour "discuter" avec le serveur). On peut dire que jQuery est un DSL (Domain Specific Language) pour le DOM. jQuery n'est pas indispensable pour faire fonctionner Backbone, mais il va grandement nous faciliter la vie dans la création de nos Webapps et va nous garantir le fonctionnement de notre code quel que soit le navigateur.
+- **Underscore.js** par le créateur de Backbone. Underscore est un ensemble d'outils qui permettent d'étendre JavaScript et qui vont vous faciliter la vie dans la gestion des Collections, Arrays, Objects… mais aussi vous permettre de faire du templating (nous verrons plus loin ce que c'est). Le gros avantage d'Underscore, c'est qu'il fonctionne quel que soit votre navigateur (comme Backbone). Underscore est une dépendance de Backbone, il est donc indispensable.
+- **jQuery**, qui est un framework dédié à la manipulation des éléments de votre page HTML (on parlera du DOM, Document Object Model) mais aussi aux appels de type Ajax (nécessaires pour "discuter" avec le serveur). On peut dire que jQuery est un DSL (Domain Specific Language) pour le DOM. jQuery n'est pas indispensable pour faire fonctionner Backbone, mais il va grandement nous faciliter la vie dans la création de nos WebApps et va nous garantir le fonctionnement de notre code quel que soit le navigateur.
 
-Nous verrons dans quelques chapitres qu'il est tout à fait possible de "marier" d'autres frameworks javascript à Backbone pour :
+Nous verrons dans quelques chapitres qu'il est tout à fait possible de "marier" d'autres frameworks JavaScript à Backbone pour :
 
 - faire du templating (certains peuvent trouver la fonctionnalité de template d'Underscore limitée)
 - gérer la persistance locale (localStorage du navigateur)
@@ -31,14 +31,14 @@ Nous verrons dans quelques chapitres qu'il est tout à fait possible de "marier"
 
 ###IDE (Éditeur)
 
-Pour coder choisissez l'éditeur de code avec lequel vous vous sentez le plus à l'aise. Ils ont tous leurs spécificités, ils sont gratuits, open-source ou payants. Certains "puristes" utilisent même Vim ou Emacs. Je vous en livre ici quelques-uns que j'ai trouvés agréables à utiliser si vous n'avez pas déjà fait votre choix :
+Pour coder choisissez l'éditeur de code avec lequel vous vous sentez le plus à l'aise. Ils ont tous leurs spécificités, ils sont gratuits, open source ou payants. Certains "puristes" utilisent même Vim ou Emacs. Je vous en livre ici quelques-uns que j'ai trouvés agréables à utiliser si vous n'avez pas déjà fait votre choix :
 
-- Mon préféré mais payant : WebStorm de chez JetBrains, il possède des fonctionnalités de refactoring très utiles (existe sous Windows, Linux et OSX)
-- Dans le même esprit et gratuit : Netbeans, il propose un éditeur HTML/Javascript très pertinent quant à la qualité de votre code (existe sous Windows, Linux et OSX)
-- Textmate (payant) un éditeur de texte avec colorisation syntaxique, un classique sous OSX
-- SublimeText (payant) un peu l'équivalent de Textmate mais toutes plateformes
+- Mon préféré mais payant : WebStorm de chez JetBrains, il possède des fonctionnalités de refactoring (réusinage de code) très utiles (existe sous Windows, Linux et OSX)
+- Dans le même esprit et gratuit : NetBeans, il propose un éditeur HTML/JavaScript très pertinent quant à la qualité de votre code (existe sous Windows, Linux et OSX)
+- TextMate (payant) un éditeur de texte avec colorisation syntaxique, un classique sous OSX
+- SublimeText (payant) un peu l'équivalent de TextMate mais toutes plateformes
 - Un bon compromis est KomodoEdit dans sa version communauté (donc non payant) et qui lui aussi fonctionne sur toutes les plateformes.
-- Aptana fourni aussi un bon IDE dédié Javascript sur une base Eclipse, mais je trouve qu'il propose finalement trop de fonctionnalités (comme Eclipse), et personnellement je m’y perds.
+- Aptana fourni aussi un bon IDE dédié JavaScript sur une base Eclipse, mais je trouve qu'il propose finalement trop de fonctionnalités (comme Eclipse), et personnellement je m’y perds.
 
 Vous voyez, il y en a pour tous les goûts. En ce qui me concerne j'utilise essentiellement WebStorm ou SublimeText.
 
@@ -55,7 +55,7 @@ Maintenant que nous sommes “outillés” (un éditeur de code et un navigateur
 - Créer un répertoire de travail `backbone001`
 - Créer ensuite un sous-répertoire `libs` avec un sous-répertoire `vendors`
 
-Nous copierons les frameworks javascript dans `vendors`.
+Nous copierons les frameworks JavaScript dans `vendors`.
 
 - Téléchargez **Backbone** : [http://documentcloud.github.com/backbone/](http://documentcloud.github.com/backbone/)
 - Téléchargez **Underscore** : [http://documentcloud.github.com/underscore/](http://documentcloud.github.com/underscore/)
@@ -107,11 +107,11 @@ Nous allons aussi récupérer le framework CSS **Twitter Bootstrap** qui nous pe
 ![Arborecsence](RSRC/02_01_ARBO.png)
 
 
-Les deux paragraphes qui suivent ne sont là que pour ceux d'entre vous qui ne connaissent ni **jQuery** ni **Underscore**. Ces paragraphes n'ont pas la prétention de vous apprendre ces outils, mais vous donneront les bases nécessaires pour vous en servir, pour comprendre leur utilité et pour vous donner envie d'aller plus loin. Les autres (ceux qui connaissent déjà), passez directement au **§ "1er contact… avec Backbone"**.
+Les deux paragraphes qui suivent ne sont là que pour ceux d'entre vous qui ne connaissent ni **jQuery** ni **Underscore**. Ces paragraphes n'ont pas la prétention de vous apprendre ces outils, mais vous donneront les bases nécessaires pour vous en servir, pour comprendre leur utilité et pour vous donner envie d'aller plus loin. Les autres (ceux qui connaissent déjà), passez directement au **§ "premier contact… avec Backbone"**.
 
 ##Jouons avec jQuery
 
-JQuery est un framework javascript initialement créé par John Resig qui vous permet de prendre le contrôle de votre page HTML. Voyons tout de suite comment nous en servir.
+JQuery est un framework JavaScript initialement créé par John Resig qui vous permet de prendre le contrôle de votre page HTML. Voyons tout de suite comment nous en servir.
 Dans notre toute nouvelle page `index.html`, préparons un peu notre bac à sable et saisissons le code suivant :
 
 ```html
@@ -212,12 +212,12 @@ Dans un premier temps, ouvrez la console de Chrome (ou Safari) : faite un clic d
 ####Saisissons nos 1ères commandes :
 
 
-Je voudrais la liste de mes titres `<H1>` : dans la console, saisir : `$('h1')`, validez, et vous obtenez un tableau (Array au sens javascript) des nodes html de type `<H1>` présents dans votre page html :
+Je voudrais la liste de mes titres `<H1>` : dans la console, saisir : `$('h1')`, validez, et vous obtenez un tableau (Array au sens JavaScript) des nœud HTML de type `<H1>` présents dans votre page HTML :
 
 ![jQuery](RSRC/02_04_JQUERY.png)
 
 
-Je voudrais le texte de l'élément dont l'id est `"current_articles_title"` : dans la console, saisir : `$('#current_articles_title').text()`. L'identifiant étant unique, en fait le type du node est peu important :
+Je voudrais le texte de l'élément dont l'id est `"current_articles_title"` : dans la console, saisir : `$('#current_articles_title').text()`. L'identifiant étant unique, en fait le type du nœud est peu important :
 
 ![jQuery](RSRC/02_05_JQUERY.png)
 
@@ -252,7 +252,7 @@ Je voudrais :
 
 Je voudrais :
 
-- la valeur de l'id de la deuxième liste (`UL`) : `$('ul').eq(1).attr("id")`, je cherche la liste d'index 1 (le 1er élément possède l'index 0).
+- la valeur de l'id de la deuxième liste (`UL`) : `$('ul').eq(1).attr("id")`, je cherche la liste d'index 1 (le premier élément possède l'index 0).
 - parcourir les lignes (`LI`) de la liste dont l'id est `"next_articles_list"` et obtenir leur texte : `$('#next_articles_list').find('li').each(function (index) { console.log( $(this).text() ); })`
 - ajouter une nouvelle ligne à la 2ème liste :
 
@@ -268,7 +268,7 @@ Je voudrais :
 
 ###Les événements
 
-  //À traiter ...
+  //À traiter...
 
 ###Quelques bonnes pratiques
 
@@ -286,7 +286,7 @@ currArtList.show('fast');
 ####Soyez sûr que les éléments de votre page sont tous chargés :
 
 
-Il est intéressant (indispensable) d'avoir la garantie que son code javascript n'est exécuté qu'une fois la page HTML entièrement chargée, surtout si ce code accède à des éléments du DOM. jQuery a une fonction pour ça : `$(document).ready(handler)` ou encore plus court : `$(handler)` où `handler` est une fonction.
+Il est intéressant (indispensable) d'avoir la garantie que son code JavaScript n'est exécuté qu'une fois la page HTML entièrement chargée, surtout si ce code accède à des éléments du DOM. jQuery a une fonction pour ça : `$(document).ready(handler)` ou encore plus court : `$(handler)` où `handler` est une fonction.
 Mettez ce code dans la balise `<script>` de votre page `index.html` :
 
 ```javascript
@@ -301,25 +301,26 @@ Puis ouvrez la page dans votre navigateur et activez la console :
 ![jQuery](RSRC/02_10_JQUERY.png)
 
 
-Il semble que tous les éléments soient chargés correctement avec ou sans l’utilisation de la méthode `ready()` de jQuery. Vous avez dû remarquer que j'avais déplacé mon code javascript et les références aux autres codes javascript "en bas de ma page". Maintenant, déplacez `<script src="libs/vendors/jquery-1.7.2.js"></script>` et le code source que nous avons écrit au niveau du header (balise `<head>`) de la page, ce qui est plus "classique" et rechargez la page :
+Il semble que tous les éléments soient chargés correctement avec ou sans l’utilisation de la méthode `ready()` de jQuery. Vous avez du remarquer que j'avais déplacé mon code JavaScript et les références aux autres codes JavaScript "en bas de ma page". Maintenant, déplacez `<script src="libs/vendors/jquery-1.7.2.js"></script>` et le code source que nous avons écrit au niveau du header (balise `<head>`) de la page, ce qui est plus "classique" et rechargez la page :
 
 ![jQuery](RSRC/02_11_JQUERY.png)
 
 
-Et là on voit bien qu'au 1er appel `$('#current_articles_list')` jQuery ne trouve rien, puis une fois le DOM chargé, jQuery trouve la liste. J'ai mis mes codes en bas de page, pour des raisons de performances et c'est pour ça que cela "semblait" fonctionner même à l'extérieur de `$(document).ready(handler)`, les éléments se chargeant plus rapidement, mais ça ne garantit rien, tout particulièrement lorsque votre page n’est plus en local. Donc n'oubliez jamais d'exécuter votre code au bon moment grâce à `$(document).ready(handler)`... Et remettez quand même votre code en bas de page ;).
+Et là on voit bien qu'au premier appel `$('#current_articles_list')` jQuery ne trouve rien, puis une fois le DOM chargé, jQuery trouve la liste. J'ai mis mes codes en bas de page, pour des raisons de performances et c'est pour ça que cela "semblait" fonctionner même à l'extérieur de `$(document).ready(handler)`, les éléments se chargeant plus rapidement, mais ça ne garantit rien, tout particulièrement lorsque votre page n’est plus en local. Donc n'oubliez jamais d'exécuter votre code au bon moment grâce à `$(document).ready(handler)`… Et remettez quand même votre code en bas de page ;).
 
 Vous venez de voir une infime partie des possibilités de jQuery, mais cela vous donne déjà un aperçu et vous permet de commencer à jouer avec et aller plus loin. jQuery permet aussi de faire des requêtes AJAX (http) vers des serveurs web, mais nous verrons cela un peu plus tard.
 
-  //TODO: traiter la notion d’id versus la notion de name
+  //TODO : traiter la notion d’id versus la notion de name
 
 
 ##Jouons avec Underscore
 
-Underscore est un framework javascript (par le créateur de Backbone) qui apporte de nombreuses fonctionnalités pour faire des traitements sur des tableaux de valeurs (Array), des collections (tableaux d'objet). Certaines de ces fonctionnalités existent en javascript, mais uniquement dans sa dernière version, alors qu'avec Underscore vous aurez la garantie qu'elles s'exécutent sur tous les navigateurs. Mais Underscore, ce sont aussi des fonctionnalités autour des fonctions et des objets (là aussi, le framework vous procure les possibilités de la dernière version de javascript quel que soit votre navigateur... ou presque, je n'ai pas testé sous IE6) et autres utilitaires, tels le templating. Je vous engage à aller sur le site, la documentation est particulièrement bien faite.
+Underscore est un framework JavaScript (par le créateur de Backbone) qui apporte de nombreuses fonctionnalités pour faire des traitements sur des tableaux de valeurs (Array), des collections (tableaux d'objet). Certaines de ces fonctionnalités existent en JavaScript, mais uniquement dans sa dernière version, alors qu'avec Underscore vous aurez la garantie qu'elles s'exécutent sur tous les navigateurs. Mais Underscore, ce sont aussi des fonctionnalités autour des fonctions et des objets (là aussi, le framework vous procure les possibilités de la dernière version de JavaScript quel que soit votre navigateur... ou presque, je n'ai pas testé sous IE6) et autres utilitaires, tels le templating. Je vous engage à aller sur le site, la documentation est particulièrement bien faite.
 
 ###Quelques exemples d'utilisations
 
 Backbone utilise et encapsule de nombreuses fonctionnalités d'Underscore (Collection, modèle objet…) donc vous n'aurez pas forcément l'obligation d'utiliser Underscore directement. Je vous livre cependant quelques exemples, car cette puissante librairie peut vous aider sur d'autres projets pas forcément dédiés Backbone.
+
 Pour les tester, nous continuons avec la console de notre navigateur (toujours avec notre page index.html).
 
 ####Tableaux et Collections :

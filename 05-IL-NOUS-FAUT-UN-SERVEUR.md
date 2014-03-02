@@ -7,19 +7,19 @@
 >>- *Construction et test de notre serveur d’application*
 
 
->*Faisons un dernier détour avant de revenir à Backbone. Pour bien en comprendre le fonctionnement, nous allons nous mettre en situation réelle. Ne laissons pas notre future webapp toute seule. Généralement une application web comporte une partie serveur qui sert à distribuer des données vers l’IHM client (dans le navigateur). Pour que le tour de Backbone.js soit complet, il serait impensable de ne pas étudier les interaction avec un serveur (interrogation de données, Ajax…)*
+>*Faisons un dernier détour avant de revenir à Backbone. Pour bien en comprendre le fonctionnement, nous allons nous mettre en situation réelle. Ne laissons pas notre futur webapp toute seule. Généralement une application web comporte une partie serveur qui sert à distribuer des données vers l’IHM client (dans le navigateur). Pour que le tour de Backbone.js soit complet, il serait impensable de ne pas étudier les interaction avec un serveur (interrogation de données, Ajax…)*
 
-Pour ce chapitre, je me suis longuement posé la question : «  quelle technologie serveur utiliser ? ». PHP, Ruby, Java, .Net… ? C’était aussi prendre le risque de vous désintéresser complètement. D’un autre côté, je souhaitais que vous puissiez rapidement entrer dans le vif du sujet. J’ai donc finalement choisi de vous faire utiliser Node.js puisque c’est aussi du Javascript et que sa mise en œuvre est rapide sans pour autant être obligé de connaître Node.js dans son ensemble. **Objectif : disposer d’un serveur d’application fournissant des services JSON en moins d’une demi-heure !**
+Pour ce chapitre, je me suis longuement posé la question : « quelle technologie serveur utiliser ? ». PHP, Ruby, Java, .Net… ? C’était aussi prendre le risque de vous désintéresser complètement. D’un autre côté, je souhaitais que vous puissiez rapidement entrer dans le vif du sujet. J’ai donc finalement choisi de vous faire utiliser Node.js puisque c’est aussi du JavaScript et que sa mise en œuvre est rapide sans pour autant être obligé de connaître Node.js dans son ensemble. **Objectif : disposer d’un serveur d’application fournissant des services JSON en moins d’une demi-heure !**
 
 Nous aurons besoin de :
 
-- **Node.js** pour le serveur d’application
-- **Express.js** qui va nous permettre de construire notre application (gestion des routes, sessions, etc.)
-- **nStore** : une petite base de données noSQL simulée avec un fichier texte (nous n’allons pas nous embêter à faire des requêtes SQL, et le noSQL est à la mode ;) )
+- **Node.js** pour le serveur d’application,
+- **Express.js** qui va nous permettre de construire notre application (gestion des routes, sessions, etc.),
+- **nStore** : une petite base de données noSQL simulée avec un fichier texte (nous n’allons pas nous embêter à faire des requêtes SQL, et le noSQL est à la mode ;) ).
 
-##Principes http : GET, POST, PUT, DELETE
+##Principes HTTP : GET, POST, PUT, DELETE
 
-Mon but est de faire une application web avec Node & Express sur les principes REST (Representational State Transfer) qui permettra de faire des opérations de type **CRUD** avec les modèles Backbone en utilisant des services basés sur le protocole http avec les verbes suivants :
+Mon but est de faire une application web avec Node et Express sur les principes REST (*Representational State Transfer*) qui permettra de faire des opérations de type **CRUD** avec les modèles Backbone en utilisant des services basés sur le protocole HTTP avec les verbes suivants :
 
 - **C**reate : POST
 - **R**ead : GET
@@ -28,7 +28,7 @@ Mon but est de faire une application web avec Node & Express sur les principes R
 
 Si cela vous paraît obscur, pas d'inquiétude, la partie pratique qui suit devrait vous éclairer. Mais je vous engage fortement à lire [http://naholyr.fr/2011/08/ecrire-service-rest-nodejs-express-partie-1/](http://naholyr.fr/2011/08/ecrire-service-rest-nodejs-express-partie-1/) de [@naholyr](https://twitter.com/naholyr).
 
-  //TODO: vois si ça nécessite d'être développé
+  //TODO : voir si ça nécessite d'être développé
 
 ##Installation(s)
 
@@ -49,7 +49,7 @@ Quel que soit votre système d’exploitation, ouvrez une console ou un terminal
   npm install express
 ```
 
->>**Remarque 1** : sous OSX ou linux vous devrez probablement passer en mode super utilisateur, faites donc précéder la commande par `sudo` : `sudo npm install express`
+>>**Remarque 1** : sous OSX ou Linux vous devrez probablement passer en mode super utilisateur, faites donc précéder la commande par `sudo` : `sudo npm install express`
 
 Nous venons donc d'installer le module **express** dans notre répertoire `blog`.
 
@@ -73,12 +73,12 @@ Voilà, nous avons tout ce qu'il faut pour commencer à créer notre application
 
 Notre application se découpe en 2 parties :
 
-- une partie statique, c'est là que viendra tout ce "qui touche" à Backbone
-- une partie dynamique, notre serveur, ce sera notre "fournisseur" de données
+- une partie statique, c'est là que viendra tout ce "qui touche" à Backbone,
+- une partie dynamique, notre serveur, ce sera notre "fournisseur" de données.
 
 ###Ressources statiques
 
-Tout d’abord vous devez créer un sous-répertoire `public`, où nous allons copier les ressources statiques de notre application. Pour cela, utilisez les fichiers dont nous nous sommes servis pour notre exemple de découverte, et copiez les fichiers ci-dessous dans le répertoire `public` :
+Tout d’abord, vous devez créer un sous-répertoire `public`, où nous allons copier les ressources statiques de notre application. Pour cela, utilisez les fichiers dont nous nous sommes servis pour notre exemple de découverte, et copiez les fichiers ci-dessous dans le répertoire `public` :
 
 - `libs/vendors/backbone.js`
 - `libs/vendors/underscore.js`
@@ -141,19 +141,19 @@ Toujours dans le répertoire `public`, créez un fichier `app.js` qui sera le pr
 
 Rapidement, le code serveur comporte :
 
-- l'initialisation de la base de données des posts et celle des users
+- l'initialisation de la base de données des articles et celle des utilisateurs,
 - 6 routes :
 
-  - `'/blogposts'` (`GET`) : pour récupérer tous les posts du blog
-  - `'/blogposts/query/:query'` (`GET`) : pour récupérer certains posts du blog
-  - `'/blogposts/:id'` (`GET`) : pour récupérer un post
-  - `'/blogposts` (`POST`) : pour créer un nouveau post
-  - `'/blogposts/:id'` (`PUT`) : pour modifier un post existant
-  - `'/blogposts/:id'` (`DELETE`) : pour supprimer un post
+  - `'/blogposts'` (`GET`) : pour récupérer tous les articles du blog,
+  - `'/blogposts/query/:query'` (`GET`) : pour récupérer certains articles du blog,
+  - `'/blogposts/:id'` (`GET`) : pour récupérer un article,
+  - `'/blogposts` (`POST`) : pour créer un nouveau article,
+  - `'/blogposts/:id'` (`PUT`) : pour modifier un article existant,
+  - `'/blogposts/:id'` (`DELETE`) : pour supprimer un article.
 
 ```javascript
 /*--------------------------------------------
-Déclaration des librairies
+Déclaration des bibliothèques
 --------------------------------------------*/
 var express = require('express'),
   nStore = require('nstore'),
@@ -174,18 +174,18 @@ app.use(express.session({
 }));
 
 /*--------------------------------------------
-Définition des "bases" posts & users
+Définition des "tables" posts & users
 --------------------------------------------*/
 var posts, users;
 
 posts = nStore.new("blog.db", function() {
   users = nStore.new("users.db", function() {
     /*
-      une fois les bases ouvertes, on passe
-      en attente de requête http (cf. code de
+      une fois les tables ouvertes, on passe
+      en attente de requête HTTP (cf. code de
       la fonction Routes())
-      Si les bases n'existent pas,
-      elles sont crées automatiquement
+      Si les tables n'existent pas,
+      elles sont créées automatiquement
     */
     Routes();
     app.listen(3000);
@@ -196,7 +196,7 @@ posts = nStore.new("blog.db", function() {
 
 function Routes() {
   /*
-    Obtenir la liste de tous les posts lorsque
+    Obtenir la liste de tous les articles lorsque
     l'on appelle http://localhost:3000/blogposts
     en mode GET
   */
@@ -219,10 +219,10 @@ function Routes() {
   });
 
   /*
-    Obtenir la liste de tous les posts correspondant à un critère
+    Obtenir la liste de tous les articles correspondant à un critère
     lorsque l'on appelle http://localhost:3000/blogposts/query/ en
     mode GET avec une requête en paramètre
-    ex : query : { "title" : "Mon 1er post"} }
+    ex : query : { "title" : "Mon premier post"} }
   */
   app.get('/blogposts/query/:query', function(req, res) {
     console.log("GET (QUERY) : /blogposts/query/" + req.params.query);
@@ -245,8 +245,8 @@ function Routes() {
   });
 
   /*
-    Retrouver un post par sa clé unique lorsque
-    l'on appelle http://localhost:3000/blogposts/identifiant_du_post
+    Retrouver un article par sa clé unique lorsque
+    l'on appelle http://localhost:3000/blogposts/identifiant_article
     en mode GET
   */
 
@@ -265,9 +265,9 @@ function Routes() {
   });
 
   /*
-    Créer un nouveau post lorsque
+    Créer un nouvel article lorsque
     l'on appelle http://localhost:3000/blogpost
-    avec en paramètre le post au format JSON
+    avec en paramètre l'article au format JSON
     en mode POST
   */
   app.post('/blogposts', function(req, res) {
@@ -290,9 +290,9 @@ function Routes() {
 
 
   /*
-    Mettre à jour un post lorsque
+    Mettre à jour un article lorsque
     l'on appelle http://localhost:3000/blogpost
-    avec en paramètre le post au format JSON
+    avec en paramètre l'article au format JSON
     en mode PUT
   */
   app.put('/blogposts/:id', function(req, res) {
@@ -313,8 +313,8 @@ function Routes() {
   });
 
   /*
-    supprimer un post par sa clé unique lorsque
-    l'on appelle http://localhost:3000/blogpost/identifiant_du_post
+    Supprimer un article par sa clé unique lorsque
+    l'on appelle http://localhost:3000/blogpost/identifiant_article
     en mode DELETE
   */
   app.delete('/blogposts/:id', function(req, res) {
@@ -337,19 +337,19 @@ function Routes() {
 }
 ```
 
-Maintenant, nous allons faire un dernier travail avant de revenir à Backbone : Nous allons vérifier que notre serveur d’application fonctionne. Pour le lancer : en mode console, allez dans le répertoire `blog` et lancez la commande `node app.js `.
+Maintenant, nous allons faire un dernier travail avant de revenir à Backbone : nous allons vérifier que notre serveur d’application fonctionne. Pour le lancer : en mode console, allez dans le répertoire `blog` et lancez la commande `node app.js `.
 
 >>**Astuce :** plutôt que de devoir arrêter et relancer votre application à chaque modification, installez **nodemon** : `npm install -g nodemon`, dorénavant pour lancer votre application web, tapez `nodemon app.js` au lieu de `node app.js`, et elle se relancera toute seule à chaque fois que nodemon détectera un changement dans vos fichiers (au moment de la sauvegarde).
 
 ##Testons notre application serveur
 
-Une fois notre application lancée, ouvrez un navigateur, appelez l’url [http://localhost:3000](http://localhost:3000) et ouvrez la console de debug du navigateur. Et c'est parti pour les tests, où nous allons utiliser intensivement les fonctionnalité Ajax de jQuery. Rappelez vous, nous l'avons inclus(e) dans notre projet, via notre page `index.html`, et au début de notre code dans `app.js`, nous avons la ligne suivante : `app.use(express.static(__dirname + '/public'));`, donc si à l'appel de [http://localhost:3000](http://localhost:3000), le serveur ne trouve pas de route `"/"`, il nous dirigera directement vers `index.html`.
+Une fois notre application lancée, ouvrez un navigateur, appelez l’URL [http://localhost:3000](http://localhost:3000) et ouvrez la console de debug du navigateur. Et c'est parti pour les tests, où nous allons utiliser intensivement les fonctionnalité Ajax de la bibliothèque jQuery. Rappelez vous, nous l'avons incluse dans notre projet, via notre page `index.html`, et au début de notre code dans `app.js`, nous avons la ligne suivante : `app.use(express.static(__dirname + '/public'));`, donc si à l'appel de [http://localhost:3000](http://localhost:3000), le serveur ne trouve pas de route `"/"`, il nous dirigera directement vers `index.html`.
 
 ###Ajoutons un enregistrement
 
 Dans la console tapez ceci (et validez) :
 
-*Requête http de type POST :*
+*Requête HTTP de type POST :*
 
 ```javascript
 $.ajax({
@@ -369,7 +369,7 @@ $.ajax({
 })
 ```
 
-Vous venez donc de créer votre tout 1er post (vous avez appelé la route `'/blogposts'` de type `POST`), et vous devriez obtenir ceci dans la console du navigateur :
+Vous venez donc de créer votre tout premier article (vous avez appelé la route `'/blogposts'` de type `POST`), et vous devriez obtenir ceci dans la console du navigateur :
 
 ![BB](RSRC/05_01_SERV.png)
 
@@ -384,7 +384,7 @@ De même dans le terminal, vous noterez l’apparition du message `POST CREATE`,
 
 Dans la console, tapez ceci :
 
-*Requête http de type GET :*
+*Requête HTTP de type GET :*
 
 ```javascript
 $.ajax({
@@ -413,7 +413,7 @@ De même dans le terminal, vous noterez l’apparition du message `GET (ALL)`, n
 
 Dans la console, tapez ceci (vous remarquerez que j’utilise une des clés d’enregistrement):
 
-*Requête http de type GET :*
+*Requête HTTP de type GET :*
 
 ```javascript
 $.ajax({
@@ -439,7 +439,7 @@ De même dans le terminal, vous obtiendrez le message `GET : /blogposts/2o03macl
 
 Dans la console, tapez ceci :
 
-*Requête http de type PUT :*
+*Requête HTTP de type PUT :*
 
 ```javascript
 $.ajax({
@@ -461,7 +461,7 @@ $.ajax({
 
 Puis appelez à nouveau pour vérifier :
 
-*Requête http de type GET :*
+*Requête HTTP de type GET :*
 
 ```javascript
 $.ajax({
@@ -485,9 +485,9 @@ De même, vous pouvez vérifier dans le terminal, l’apparition des messages co
 
 ###Faire une requête
 
-Dans la console, tapez la commande Ajax ci-dessous *(je veux les posts dont le titre est égal à “My 3rd post”)* :
+Dans la console, tapez la commande Ajax ci-dessous *(je veux les articles dont le titre est égal à “My 3rd post”)* :
 
-*Requête http de type GET :*
+*Requête HTTP de type GET :*
 
 ```javascript
 $.ajax({
@@ -513,7 +513,7 @@ Une fois de plus, vous pouvez vérifier dans le terminal, l’apparition du mess
 
 Supprimons l'enregistrement qui a la clé d'id égale à `2o03macl` *(chez vous c'est sans doute autre chose)*. Dans la console, tapez ceci :
 
-*Requête http de type DELETE :*
+*Requête HTTP de type DELETE :*
 
 ```javascript
 $.ajax({
@@ -530,7 +530,7 @@ $.ajax({
 
 Puis recherchez à nouveau l’enregistrement :
 
-*Requête http de type GET :*
+*Requête HTTP de type GET :*
 
 ```javascript
 $.ajax({
@@ -553,7 +553,7 @@ De même dans le terminal, vous noterez l’apparition du message `DELETE` puis 
 
 La base de notre application côté serveur est donc posée. Nous la ferons évoluer en fonction de nos besoins. **Maintenant, passons aux choses sérieuses** :-).
 
->>**Remarque** *: Vous avez remarqué que l’url dans le cas de la création, la sauvegarde, et la suppression d’un modèle, ne changeait pas. Ce qui fait la distinction c’est le verbe http (GET, POST, PUT, DELETE).*
+>>**Remarque** *: Vous avez remarqué que l’URL dans le cas de la création, la sauvegarde, et la suppression d’un modèle, ne changeait pas. Ce qui fait la distinction c’est le verbe HTTP (GET, POST, PUT, DELETE).*
 
 
 
