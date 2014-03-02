@@ -86,7 +86,7 @@ Dans la balise `<script></script>` saisissez le code suivant :
 *Définition d’un modèle Article :*
 
 ```html
-< script >
+<script>
 
 $(function() {
   //permettra d'accéder à nos variables en mode console
@@ -110,7 +110,7 @@ $(function() {
 
 });
 
-< /script>
+</script>
 ```
 
 Sauvegardez, relancez dans le navigateur et allez dans la console :
@@ -126,7 +126,7 @@ Sauvegardez, relancez dans le navigateur et allez dans la console :
 ![BB](RSRC/03_01_BB.png)
 
 
-Vous venez donc de voir que nous avons défini le modèle article “un peu” comme une classe qui hériterait (`extend`) de la classe `Backbone.Model`, que nous lui avons défini des valeurs par défauts (`defaults`), et affecté une méthode d’initialisation (`initialize`). Et qu’il existe un système d'accesseurs et de manipulateurs un peu particulier (`model.get(property_name)`, `model.set(property_name, value)`), mais nous verrons ultérieurement dans le détail comment fonctionnent les modèles.
+Vous venez donc de voir que nous avons défini le modèle article “un peu” comme une classe qui hériterait (`extend`) de la classe `Backbone.Model`, que nous lui avons défini des valeurs par défaut (`defaults`), et affecté une méthode d’initialisation (`initialize`). Et qu’il existe un système d'accesseurs et de manipulateurs un peu particulier (`model.get(property_name)`, `model.set(property_name, value)`), mais nous verrons ultérieurement dans le détail comment fonctionnent les modèles.
 
 >>**Remarque** *: le modèle de programmation de JavaScript est bien orienté objet, mais n’est pas orienté “classe” comme peut l’être par exemple Java. Cela peut déstabiliser au départ, mais je vous engage à lire [REF VERS ARTICLE] à ce propos.*
 
@@ -185,7 +185,7 @@ Nous venons donc d'ajouter 3 articles à notre collection,
 
 ##Vue et Template
 
-Avant toute chose, allons ajouter dans notre code Javascript (en bas de la page HTML) le bout de code qui va créer les articles et la collection d'articles pour nous éviter de tout re-saisir à chaque fois. Donc après le code de la collection, ajoutez ceci :
+Avant toute chose, allons ajouter dans notre code JavaScript (en bas de la page HTML) le bout de code qui va créer les articles et la collection d'articles pour nous éviter de tout re-saisir à chaque fois. Donc après le code de la collection, ajoutez ceci :
 
 ```javascript
 /*--- bootstrap ---*/
@@ -345,7 +345,7 @@ Refaites les manipulations précédentes, et là (si vous avez laissez suffisamm
 ![BB](RSRC/03_05_BB.png)
 
 
->>**Remarque** : la propriété date n’existe plus dans les valeurs par défaut, elle est créée à l’instanciation du modèle lors de l’appel de `this.set("publicationDate",new Date())` dans la méthode `initialize`. De la même manière, vous pouvez créer à la volée des propriétés “a posteriori” pour les instances des modèles.
+>>**Remarque** : la propriété date n’existe plus dans les valeurs par défaut, elle est créée à l’instanciation du modèle lors de l’appel de `this.set("publicationDate",new Date())` dans la méthode `initialize`. De la même manière, vous pouvez créer à la volée des propriétés _a posteriori_ pour les instances des modèles.
 
 **Et voilà, l’initiation est terminée. Nous allons pouvoir passer “aux choses sérieuses” et découvrir jusqu’où nous pouvons “pousser” Backbone.**
 

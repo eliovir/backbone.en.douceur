@@ -6,7 +6,7 @@
 >>- *... des Classes, des interfaces, des modules et du typage !!!*
 >>- *La cohabitation avec Backbone*
 
->*A l'heure où j'écris, Microsoft vient, il y a peu, de présenter au monde son nouveau bébé : TypeScript, un transpiler JavaScript (un autre !) qui préfigure ce que sera la future version de JavaScript. Sur le même principe que CoffeScript, TypeScript apporte les concepts qui manquent tant à de nombreux développeurs "allergiques" à JavaScript. C'est à dire les, les Classes mais aussi les modules (pensez namespaces ou packages), les interfaces, les propriétés, ... Mais il y a un petit plus : on conserve les {}, les (), les ; ... tout ce qui contribue finalement à rendre le code lisible.*
+>*À l'heure où j'écris, Microsoft vient, il y a peu, de présenter au monde son nouveau bébé : TypeScript, un transpiler JavaScript (un autre !) qui préfigure ce que sera la future version de JavaScript. Sur le même principe que CoffeScript, TypeScript apporte les concepts qui manquent tant à de nombreux développeurs "allergiques" à JavaScript. C'est à dire les, les Classes mais aussi les modules (pensez namespaces ou packages), les interfaces, les propriétés… Mais il y a un petit plus : on conserve les {}, les (), les ; … tout ce qui contribue finalement à rendre le code lisible.*
 
 L'objectif n'est pas de vous expliquer TypeScript de A à Z (ça pourrait faire un autre bouquin, si ça vous intéresse faites moi signe), mais de vous montrer rapidement ce que ça pourrait vous apporter utilisé conjointement avec Backbone.
 
@@ -237,12 +237,12 @@ Il est en fait possible de décrire des déclarations plus complexes pour que Ty
 declare module Backbone {
 
   export class Model {
-  constructor (attr? , opts? );
-  intialize (attr? , opts? );
+  constructor (attr?,  opts? );
+  intialize (attr?,  opts? );
   get(name: string): any;
   set(name: string, val: any): void;
   set(obj: any): void;
-  save(attr? , opts? ): void;
+  save(attr?,  opts? ): void;
   destroy(): void;
   bind(ev: string, f: Function, ctx?: any): void;
   toJSON(): any;

@@ -48,7 +48,7 @@ Kind.extend = Backbone.Model.extend;
 
 >>**Remarque 1** : j’ai utilisé « Kind » pour ne pas utiliser « Class » ou « class » qui est un terme réservé pour les futures versions de JavaScript.
 
->>**Remarque 2** : je vais utiliser du français dans mon code. Je sais que c’est moche, promis j’essaye de ne plus le faire (à part dans les commentaires)
+>>**Remarque 2** : je vais utiliser du français dans mon code. Je sais que c’est moche, promis j’essaye de ne plus le faire (à part dans les commentaires).
 
 Nous pouvons donc maintenant écrire :
 
@@ -289,6 +289,6 @@ A l’exécution nous obtiendrons donc :
 
 ##Conclusion
 
-Nous venons de voir comment continuer à programmer objet sans trop bouleverser vos habitudes (cela ne doit pas vous empêcher d’étudier le modèle objet de JavaScript plus en profondeur). Cela va vous permettre de mieux structurer votre code (et en JavaScript, c’est important) mais aussi vos idées, de comprendre le fonctionnement de Backbone, mais de pouvoir aussi écrire des extensions à Backbone plus facilement.
+Nous venons de voir comment continuer à programmer objet sans trop bouleverser vos habitudes (cela ne doit pas vous empêcher d’étudier le modèle objet de JavaScript plus en profondeur). Vous pourrez mieux structurer votre code (et en JavaScript, c’est important) mais aussi vos idées, mieux comprendre le fonctionnement de Backbone, et aussi écrire des extensions à Backbone plus facilement.
 
 

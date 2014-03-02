@@ -65,7 +65,7 @@ window.postView = new PostView();
 
 Nous pouvons maintenant créer notre routeur. La propriété importante du routeur est `routes`. Dans notre exemple (juste en dessous), je lui ai affecté trois routes :
 
-- `post/:id_post ` : lorsque le clic sur un lien de type `<a href="#post/{{id}}">Lire…</a>` la méthode `displayPost` du routeur sera appelée avec l’id du post en paramètre
+- `post/:id_post` : lorsque le clic sur un lien de type `<a href="#post/{{id}}">Lire…</a>` la méthode `displayPost` du routeur sera appelée avec l’id de l'article en paramètre
 - `hello`, qui appellera la méthode `hello` si par exemple on saisit `http://localhost:3000/#hello` dans la barre d’URL du navigateur (notez le “#”, nous y reviendrons plus tard)
 - et enfin `*path` qui appellera la méthode `root` pour toute autre URL comme `#/`, `/`…
 
