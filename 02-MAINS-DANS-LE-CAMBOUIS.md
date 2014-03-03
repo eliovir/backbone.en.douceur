@@ -23,7 +23,7 @@ Nous verrons dans quelques chapitres qu'il est tout à fait possible de "marier"
 
 - faire du templating (certains peuvent trouver la fonctionnalité de template d'Underscore limitée)
 - gérer la persistance locale (localStorage du navigateur)
-- ...
+- …
 
 >>**Remarque :** *Il est possible d'utiliser Zepto.js à la place de jQuery, Zepto fonctionne à l'identique de jQuery mais il est dédié principalement aux navigateurs mobiles et est beaucoup plus léger que jQuery (avantageux sur un mobile), cependant vous n'avez plus la garantie que votre code fonctionne dans d'autres navigateurs (Zepto "marchera" très bien sous Chrome, Safari et Firefox).*
 
@@ -33,10 +33,10 @@ Nous verrons dans quelques chapitres qu'il est tout à fait possible de "marier"
 
 Pour coder choisissez l'éditeur de code avec lequel vous vous sentez le plus à l'aise. Ils ont tous leurs spécificités, ils sont gratuits, open source ou payants. Certains "puristes" utilisent même Vim ou Emacs. Je vous en livre ici quelques-uns que j'ai trouvés agréables à utiliser si vous n'avez pas déjà fait votre choix :
 
-- Mon préféré mais payant : WebStorm de chez JetBrains, il possède des fonctionnalités de refactoring (réusinage de code) très utiles (existe sous Windows, Linux et OSX)
-- Dans le même esprit et gratuit : NetBeans, il propose un éditeur HTML/JavaScript très pertinent quant à la qualité de votre code (existe sous Windows, Linux et OSX)
-- TextMate (payant) un éditeur de texte avec colorisation syntaxique, un classique sous OSX
-- SublimeText (payant) un peu l'équivalent de TextMate mais toutes plateformes
+- Mon préféré mais payant : WebStorm de chez JetBrains, il possède des fonctionnalités de refactoring (réusinage de code) très utiles (existe sous Windows, Linux et OSX).
+- Dans le même esprit et gratuit : NetBeans, il propose un éditeur HTML/JavaScript très pertinent quant à la qualité de votre code (existe sous Windows, Linux et OSX).
+- TextMate (payant) un éditeur de texte avec colorisation syntaxique, un classique sous OSX.
+- SublimeText (payant) un peu l'équivalent de TextMate mais toutes plateformes.
 - Un bon compromis est KomodoEdit dans sa version communauté (donc non payant) et qui lui aussi fonctionne sur toutes les plateformes.
 - Aptana fourni aussi un bon IDE dédié JavaScript sur une base Eclipse, mais je trouve qu'il propose finalement trop de fonctionnalités (comme Eclipse), et personnellement je m’y perds.
 
@@ -63,9 +63,23 @@ Nous copierons les frameworks JavaScript dans `vendors`.
 
 >>**CONSEIL** *: Utilisez les versions non minifiées des fichiers. Il est toujours intéressant de pouvoir lire le code source des frameworks lorsqu'ils sont bien documentés, ce qui est le cas de Backbone et Underscore. N'hésitez pas à aller mettre le nez dedans, c'est instructif et ces 2 frameworks sont très lisibles, même pour des débutants.*
 
-- Téléchargez **jQuery** : [http://jquery.com/](http://jquery.com/)
+- Téléchargez **jQuery** : [http://jquery.com/](http://jquery.com/) et renommez le fichier en `jquery.js`.
 
 Nous allons aussi récupérer le framework CSS **Twitter Bootstrap** qui nous permettra de faire de "jolies" pages sans effort. Ce n'est pas du tout obligatoire, mais c'est toujours plus satisfaisant d'avoir une belle page d'exemple. Téléchargez `bootstrap.zip` : [http://twitter.github.com/bootstrap/](http://twitter.github.com/bootstrap/), "dé-zippez" le fichier et copiez le répertoire `bootstrap` dans votre répertoire `vendors`.
+
+Vous pouvez utiliser directement ces commandes dans votre terminal :
+
+```sh
+mkdir backbone001
+cd backbone001
+mkdir -p libs/vendors
+cd libs/vendors
+wget http://documentcloud.github.io/backbone/backbone.js
+wget http://documentcloud.github.io/underscore/underscore.js
+wget https://github.com/twbs/bootstrap/releases/download/v3.1.1/bootstrap-3.1.1-dist.zip
+unzip bootstrap-3.1.1-dist.zip
+mv bootstrap-3.1.1-dist bootstrap
+```
 
 ###Préparons notre page HTML
 
@@ -80,7 +94,7 @@ Nous allons aussi récupérer le framework CSS **Twitter Bootstrap** qui nous pe
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- === Styles Twitter Bootstrap -->
-		<!--V 3.0.1 ...-->
+		<!--V 3.1.1 ...-->
 		<link href="libs/vendors/bootstrap/css/bootstrap.css" rel="stylesheet">
 		<link href="libs/vendors/bootstrap/css/bootstrap-theme.css" rel="stylesheet">
   </head>
@@ -91,7 +105,7 @@ Nous allons aussi récupérer le framework CSS **Twitter Bootstrap** qui nous pe
 
   </body>
   <!-- === Références aux Frameworks === -->
-  <script src="libs/vendors/jquery.js"></script><!--V 1.10.2 -->
+  <script src="libs/vendors/jquery.js"></script><!--V 1.11.0 -->
   <script src="libs/vendors/underscore.js"></script><!--V 1.5.2 -->
   <script src="libs/vendors/backbone.js"></script><!--V 1.1.0 -->
 
@@ -123,7 +137,7 @@ Dans notre toute nouvelle page `index.html`, préparons un peu notre bac à sabl
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- === Styles Twitter Bootstrap -->
-		<!--V 3.0.1 ...-->
+		<!--V 3.1.1 ...-->
 		<link href="libs/vendors/bootstrap/css/bootstrap.css" rel="stylesheet">
 		<link href="libs/vendors/bootstrap/css/bootstrap-theme.css" rel="stylesheet">
 		
@@ -184,7 +198,7 @@ Dans notre toute nouvelle page `index.html`, préparons un peu notre bac à sabl
 
 	</body>
 	<!-- === Références aux Frameworks === -->
-	<script src="libs/vendors/jquery.js"></script><!--V 1.10.2 -->
+	<script src="libs/vendors/jquery.js"></script><!--V 1.11.0 -->
 	<script src="libs/vendors/underscore.js"></script><!--V 1.5.2 -->
 	<script src="libs/vendors/backbone.js"></script><!--V 1.1.0 -->
 
@@ -209,7 +223,7 @@ Dans un premier temps, ouvrez la console de Chrome (ou Safari) : faite un clic d
 ![Console](RSRC/02_03_CONSOLE.png)
 
 
-####Saisissons nos 1ères commandes :
+####Saisissons nos premières commandes :
 
 
 Je voudrais la liste de mes titres `<H1>` : dans la console, saisir : `$('h1')`, validez, et vous obtenez un tableau (Array au sens JavaScript) des nœud HTML de type `<H1>` présents dans votre page HTML :
@@ -268,7 +282,7 @@ Je voudrais :
 
 ###Les événements
 
-  //À traiter...
+  //À traiter…
 
 ###Quelques bonnes pratiques
 
@@ -301,7 +315,7 @@ Puis ouvrez la page dans votre navigateur et activez la console :
 ![jQuery](RSRC/02_10_JQUERY.png)
 
 
-Il semble que tous les éléments soient chargés correctement avec ou sans l’utilisation de la méthode `ready()` de jQuery. Vous avez du remarquer que j'avais déplacé mon code JavaScript et les références aux autres codes JavaScript "en bas de ma page". Maintenant, déplacez `<script src="libs/vendors/jquery-1.7.2.js"></script>` et le code source que nous avons écrit au niveau du header (balise `<head>`) de la page, ce qui est plus "classique" et rechargez la page :
+Il semble que tous les éléments soient chargés correctement avec ou sans l’utilisation de la méthode `ready()` de jQuery. Vous avez dû remarquer que j'avais déplacé mon code JavaScript et les références aux autres codes JavaScript "en bas de ma page". Maintenant, déplacez `<script src="libs/vendors/jquery-1.7.2.js"></script>` et le code source que nous avons écrit au niveau du header (balise `<head>`) de la page, ce qui est plus "classique" et rechargez la page :
 
 ![jQuery](RSRC/02_11_JQUERY.png)
 
@@ -315,7 +329,7 @@ Vous venez de voir une infime partie des possibilités de jQuery, mais cela vous
 
 ##Jouons avec Underscore
 
-Underscore est un framework JavaScript (par le créateur de Backbone) qui apporte de nombreuses fonctionnalités pour faire des traitements sur des tableaux de valeurs (Array), des collections (tableaux d'objet). Certaines de ces fonctionnalités existent en JavaScript, mais uniquement dans sa dernière version, alors qu'avec Underscore vous aurez la garantie qu'elles s'exécutent sur tous les navigateurs. Mais Underscore, ce sont aussi des fonctionnalités autour des fonctions et des objets (là aussi, le framework vous procure les possibilités de la dernière version de JavaScript quel que soit votre navigateur... ou presque, je n'ai pas testé sous IE6) et autres utilitaires, tels le templating. Je vous engage à aller sur le site, la documentation est particulièrement bien faite.
+Underscore est un framework JavaScript (par le créateur de Backbone) qui apporte de nombreuses fonctionnalités pour faire des traitements sur des tableaux de valeurs (Array), des collections (tableaux d'objet). Certaines de ces fonctionnalités existent en JavaScript, mais uniquement dans sa dernière version, alors qu'avec Underscore vous aurez la garantie qu'elles s'exécutent sur tous les navigateurs. Mais Underscore, ce sont aussi des fonctionnalités autour des fonctions et des objets (là aussi, le framework vous procure les possibilités de la dernière version de JavaScript quel que soit votre navigateur… ou presque, je n'ai pas testé sous IE6) et autres utilitaires, tels le templating. Je vous engage à aller sur le site, la documentation est particulièrement bien faite.
 
 ###Quelques exemples d'utilisations
 
