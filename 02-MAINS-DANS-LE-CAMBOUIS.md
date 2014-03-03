@@ -57,8 +57,8 @@ Maintenant que nous sommes “outillés” (un éditeur de code et un navigateur
 
 Nous copierons les frameworks JavaScript dans `vendors`.
 
-- Téléchargez **Backbone** : [http://documentcloud.github.com/backbone/](http://documentcloud.github.com/backbone/)
-- Téléchargez **Underscore** : [http://documentcloud.github.com/underscore/](http://documentcloud.github.com/underscore/)
+- Téléchargez **Backbone** : [http://backbonejs.org/](http://backbonejs.org/)
+- Téléchargez **Underscore** : [http://underscorejs.org/](http://underscorejs.org/)
 
 
 >>**CONSEIL** *: Utilisez les versions non minifiées des fichiers. Il est toujours intéressant de pouvoir lire le code source des frameworks lorsqu'ils sont bien documentés, ce qui est le cas de Backbone et Underscore. N'hésitez pas à aller mettre le nez dedans, c'est instructif et ces 2 frameworks sont très lisibles, même pour des débutants.*
@@ -74,8 +74,10 @@ mkdir backbone001
 cd backbone001
 mkdir -p libs/vendors
 cd libs/vendors
-wget http://documentcloud.github.io/backbone/backbone.js
-wget http://documentcloud.github.io/underscore/underscore.js
+wget http://backbonejs.org/backbone.js
+wget http://underscorejs.org/underscore.js
+wget http://code.jquery.com/jquery-1.11.0.js
+mv jquery-1.11.0.js jquery.js
 wget https://github.com/twbs/bootstrap/releases/download/v3.1.1/bootstrap-3.1.1-dist.zip
 unzip bootstrap-3.1.1-dist.zip
 mv bootstrap-3.1.1-dist bootstrap
@@ -107,7 +109,7 @@ mv bootstrap-3.1.1-dist bootstrap
   <!-- === Références aux Frameworks === -->
   <script src="libs/vendors/jquery.js"></script><!--V 1.11.0 -->
   <script src="libs/vendors/underscore.js"></script><!--V 1.5.2 -->
-  <script src="libs/vendors/backbone.js"></script><!--V 1.1.0 -->
+  <script src="libs/vendors/backbone.js"></script><!--V 1.1.2 -->
 
   <!-- === ici votre code applicatif === -->
   <script>
