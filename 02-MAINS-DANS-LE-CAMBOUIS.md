@@ -63,9 +63,21 @@ Nous copierons les frameworks JavaScript dans `vendors`.
 
 >>**CONSEIL** *: Utilisez les versions non minifiées des fichiers. Il est toujours intéressant de pouvoir lire le code source des frameworks lorsqu'ils sont bien documentés, ce qui est le cas de Backbone et Underscore. N'hésitez pas à aller mettre le nez dedans, c'est instructif et ces 2 frameworks sont très lisibles, même pour des débutants.*
 
-- Téléchargez **jQuery** : [http://jquery.com/](http://jquery.com/)
+- Téléchargez **jQuery** : [http://jquery.com/](http://jquery.com/) et renommez le fichier en `jquery.js`.
 
 Nous allons aussi récupérer le framework CSS **Twitter Bootstrap** qui nous permettra de faire de "jolies" pages sans effort. Ce n'est pas du tout obligatoire, mais c'est toujours plus satisfaisant d'avoir une belle page d'exemple. Téléchargez `bootstrap.zip` : [http://twitter.github.com/bootstrap/](http://twitter.github.com/bootstrap/), "dé-zippez" le fichier et copiez le répertoire `bootstrap` dans votre répertoire `vendors`.
+
+```sh
+mkdir backbone001
+cd backbone001
+mkdir -p libs/vendors
+cd libs/vendors
+wget http://documentcloud.github.io/backbone/backbone.js
+wget http://documentcloud.github.io/underscore/underscore.js
+wget https://github.com/twbs/bootstrap/releases/download/v3.1.1/bootstrap-3.1.1-dist.zip
+unzip bootstrap-3.1.1-dist.zip
+mv bootstrap-3.1.1-dist bootstrap
+```
 
 ###Préparons notre page HTML
 
@@ -80,7 +92,7 @@ Nous allons aussi récupérer le framework CSS **Twitter Bootstrap** qui nous pe
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- === Styles Twitter Bootstrap -->
-		<!--V 3.0.1 ...-->
+		<!--V 3.1.1 ...-->
 		<link href="libs/vendors/bootstrap/css/bootstrap.css" rel="stylesheet">
 		<link href="libs/vendors/bootstrap/css/bootstrap-theme.css" rel="stylesheet">
   </head>
@@ -91,9 +103,9 @@ Nous allons aussi récupérer le framework CSS **Twitter Bootstrap** qui nous pe
 
   </body>
   <!-- === Références aux Frameworks === -->
-  <script src="libs/vendors/jquery.js"></script><!--V 1.10.2 -->
-  <script src="libs/vendors/underscore.js"></script><!--V 1.5.2 -->
-  <script src="libs/vendors/backbone.js"></script><!--V 1.1.0 -->
+  <script src="libs/vendors/jquery.js"></script><!--V 1.11.0 -->
+  <script src="libs/vendors/underscore.js"></script><!--V 1.6.0 -->
+  <script src="libs/vendors/backbone.js"></script><!--V 1.1.2 -->
 
   <!-- === ici votre code applicatif === -->
   <script>
@@ -123,7 +135,7 @@ Dans notre toute nouvelle page `index.html`, préparons un peu notre bac à sabl
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- === Styles Twitter Bootstrap -->
-		<!--V 3.0.1 ...-->
+		<!--V 3.1.1 ...-->
 		<link href="libs/vendors/bootstrap/css/bootstrap.css" rel="stylesheet">
 		<link href="libs/vendors/bootstrap/css/bootstrap-theme.css" rel="stylesheet">
 		
@@ -184,9 +196,9 @@ Dans notre toute nouvelle page `index.html`, préparons un peu notre bac à sabl
 
 	</body>
 	<!-- === Références aux Frameworks === -->
-	<script src="libs/vendors/jquery.js"></script><!--V 1.10.2 -->
-	<script src="libs/vendors/underscore.js"></script><!--V 1.5.2 -->
-	<script src="libs/vendors/backbone.js"></script><!--V 1.1.0 -->
+	<script src="libs/vendors/jquery.js"></script><!--V 1.11.0 -->
+	<script src="libs/vendors/underscore.js"></script><!--V 1.6.0 -->
+	<script src="libs/vendors/backbone.js"></script><!--V 1.1.2 -->
 
 	<!-- === ici votre code applicatif === -->
 	<script>

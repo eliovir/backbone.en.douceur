@@ -93,7 +93,7 @@ Et copiez aussi le répertoire `bootstrap` de notre exemple. Ensuite, préparez 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Backbone</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--V 3.0.1 ...-->
+    <!--V 3.1.1 ...-->
     <link href="libs/vendors/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="libs/vendors/bootstrap/css/bootstrap-theme.css" rel="stylesheet">
     <style>
@@ -123,9 +123,9 @@ Et copiez aussi le répertoire `bootstrap` de notre exemple. Ensuite, préparez 
 
   </body>
   <!-- === Références aux Frameworks === -->
-  <script src="libs/vendors/jquery.js"></script><!--V 1.10.2 -->
-  <script src="libs/vendors/underscore.js"></script><!--V 1.5.2 -->
-  <script src="libs/vendors/backbone.js"></script><!--V 1.1.0 -->
+  <script src="libs/vendors/jquery.js"></script><!--V 1.11.0 -->
+  <script src="libs/vendors/underscore.js"></script><!--V 1.6.0 -->
+  <script src="libs/vendors/backbone.js"></script><!--V 1.1.2 -->
 
   <!-- === code applicatif === -->
   <script>

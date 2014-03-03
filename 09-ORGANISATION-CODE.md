@@ -74,9 +74,9 @@ Je crée un répertoire `libs/vendors` pour tous les scripts « qui ne sont pas 
 
 ```html
 <!-- === Références aux Frameworks === -->
-<script src="libs/vendors/jquery.js"></script><!--V 1.10.2 -->
-<script src="libs/vendors/underscore.js"></script><!--V 1.5.2 -->
-<script src="libs/vendors/backbone.js"></script><!--V 1.1.0 -->
+<script src="libs/vendors/jquery.js"></script><!--V 1.11.0 -->
+<script src="libs/vendors/underscore.js"></script><!--V 1.6.0 -->
+<script src="libs/vendors/backbone.js"></script><!--V 1.1.2 -->
 <script src="libs/vendors/mustache.js"></script>
 
 <!-- === code applicatif === -->

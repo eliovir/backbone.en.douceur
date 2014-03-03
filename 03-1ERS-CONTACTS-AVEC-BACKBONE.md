@@ -26,7 +26,7 @@ Nous allons utiliser notre même page `index.html`, mais faisons un peu de ména
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Backbone</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--V 3.0.1 ...-->
+    <!--V 3.1.1 ...-->
     <link href="libs/vendors/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="libs/vendors/bootstrap/css/bootstrap-theme.css" rel="stylesheet">
 
@@ -59,9 +59,9 @@ Nous allons utiliser notre même page `index.html`, mais faisons un peu de ména
 
   </body>
   <!-- === Références aux Frameworks === -->
-  <script src="libs/vendors/jquery.js"></script><!--V 1.10.2 -->
-  <script src="libs/vendors/underscore.js"></script><!--V 1.5.2 -->
-  <script src="libs/vendors/backbone.js"></script><!--V 1.1.0 -->
+  <script src="libs/vendors/jquery.js"></script><!--V 1.11.0 -->
+  <script src="libs/vendors/underscore.js"></script><!--V 1.6.0 -->
+  <script src="libs/vendors/backbone.js"></script><!--V 1.1.2 -->
 
   <script>
       $(function (){
@@ -360,7 +360,7 @@ Le code final de votre page devrait ressembler à ceci :
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Backbone</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--V 3.0.1 ...-->
+    <!--V 3.1.1 ...-->
     <link href="libs/vendors/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="libs/vendors/bootstrap/css/bootstrap-theme.css" rel="stylesheet">
     
@@ -406,9 +406,9 @@ Le code final de votre page devrait ressembler à ceci :
 
   </body>
   <!-- === Références aux Frameworks === -->
-  <script src="libs/vendors/jquery.js"></script><!--V 1.10.2 -->
-  <script src="libs/vendors/underscore.js"></script><!--V 1.5.2 -->
-  <script src="libs/vendors/backbone.js"></script><!--V 1.1.0 -->
+  <script src="libs/vendors/jquery.js"></script><!--V 1.11.0 -->
+  <script src="libs/vendors/underscore.js"></script><!--V 1.6.0 -->
+  <script src="libs/vendors/backbone.js"></script><!--V 1.1.2 -->
 
   <!-- === code applicatif === -->
   <script>
@@ -487,6 +487,9 @@ Le code final de votre page devrait ressembler à ceci :
       content: "contenu5"
     }));
 
+    /*--- Instanciation de la vue ---*/
+    articlesView = new blog.ArticlesView({ collection : blog.listeArticles });
+    articlesView.render();
   });
   </script>
 </html>

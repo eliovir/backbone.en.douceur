@@ -66,7 +66,7 @@ Dans notre répertoire public (à la racine), créez une page `index.canjs.html`
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>CanJS</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!--V 3.0.1 ...-->
+  <!--V 3.1.1 ...-->
   <link href="libs/vendors/bootstrap/css/bootstrap.css" rel="stylesheet">
   <link href="libs/vendors/bootstrap/css/bootstrap-theme.css" rel="stylesheet">
   
@@ -239,7 +239,7 @@ Cette fois-ci, nous allons utiliser 2 fichiers : une page `index.spine.html` qui
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Spine</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--V 3.0.1 ...-->
+    <!--V 3.1.1 ...-->
     <link href="libs/vendors/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="libs/vendors/bootstrap/css/bootstrap-theme.css" rel="stylesheet">
     
